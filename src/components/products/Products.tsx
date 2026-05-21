@@ -8,7 +8,7 @@ function Products() {
     console.log(data)
   return (
         <Container>
-            <div className='grid gap-6 mt-18.5 sm:grid-cols-3 px-32'>
+            <div className='grid gap-6 sm:grid-cols-3 px-32 py-18'>
                 {isLoading ? (
                 <h1>Loading...</h1>
             ) :  data && data.map((item) => (

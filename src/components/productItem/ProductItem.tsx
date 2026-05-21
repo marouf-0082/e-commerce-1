@@ -4,7 +4,7 @@ type IProductItem = IProduct;
 
 function ProductItem({ name, price, image }: IProductItem) {
   return (
-    <div className="shadow-md rounded-3xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+    <div className="shadow-md border border-slate-200 rounded-3xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
       <div className="group/cart relative w-full h-102 overflow-hidden rounded-t-3xl">
         <img
           src={image}
@@ -12,7 +12,7 @@ function ProductItem({ name, price, image }: IProductItem) {
           className="w-full h-full object-cover group-hover:scale-110  transition-all duration-300"
         />
         <div className="absolute top-0 w-full h-full rounded-t-3xl opacity-0 group-hover/cart:opacity-100 backdrop-blur-xs transition-all duration-300">
-          <div className="fixed top-3 right-3 p-2.5 bg-white rounded-full group/heart">
+          <div className="fixed top-3 right-3 w-9 h-9 bg-white rounded-full group/heart flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
