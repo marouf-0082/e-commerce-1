@@ -1,6 +1,5 @@
 import { useGetProducts } from '../services/product/hooks'
 import { Container } from '../container/Container';
-import { Link } from 'react-router-dom';
 import ProductItem from '../productItem/ProductItem';
 
 function Products() {
@@ -12,9 +11,7 @@ function Products() {
                 {isLoading ? (
                 <h1>Loading...</h1>
             ) :  data && data.map((item) => (
-                    <Link to={`/products/${item.id}`} key={item.id}>
-                        <ProductItem {...item}/>
-                    </Link>
+                        <ProductItem {...item} key={item.id}/>
                 ))
             }
             </div>

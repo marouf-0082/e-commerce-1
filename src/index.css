@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
 *{
-  font-family: sans-serif, Serif, serif , monospace
+  font-family: sans-serif, Serif, serif , monospace;
+}
+
+
+p{
+  color: rgb(105, 105, 105);
+}
+
+@layer components {
+  .fsvg {
+    @apply w-10 h-10 bg-slate-100 flex justify-center items-center cursor-pointer rounded-full hover:bg-[#f69e0a] transition-colors duration-300
+  }
 }
