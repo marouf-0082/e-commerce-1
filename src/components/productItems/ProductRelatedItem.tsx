@@ -1,0 +1,31 @@
+import { Link } from "react-router-dom";
+
+function ProductRelatedItem({
+  image,
+  name,
+  price,
+  id,
+}: {
+  image: string;
+  name: string;
+  price: number;
+  id: number;
+}) {
+  return (
+    <Link to={`/product/${id}`}>
+      <div className="w-full h-full rounded-3xl border border-slate-200 rounded-3xl overflow-hidden shadow flex flex-col group hover:shadow-md transition-all duration-300">
+        <div className="w-full h-96 overflow-hidden">
+          <img className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300" src={image} alt={name} />
+        </div>
+        <div className="p-4">
+          <h3 className="pb-2 font-bold text-slate-800">{name}</h3>
+          <p className="text-[19px] font-bold !text-[#f69e0a]">
+            ${price.toFixed(2)}
+          </p>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+export default ProductRelatedItem;

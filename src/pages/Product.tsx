@@ -5,13 +5,12 @@ import {
   useGetProducts,
 } from "../components/services/product/hooks";
 import FeatureBar from "../components/featureBar/FeatureBar";
-import ProductItem from "../components/productItem/ProductItem";
+import ProductRelatedItem from "../components/productItems/ProductRelatedItem";
 
 function Product() {
   const params = useParams<{ id: string }>();
   const { data: product, isLoading } = useGetProduct(params.id as string);
   const { data: products, isLoading: isProductsLoading } = useGetProducts();
-  console.log(products);
   return (
     <div>
       <Container>
@@ -163,7 +162,12 @@ function Product() {
           )}
           <FeatureBar />
           <div className="mt-20">
-            <h2 className="font-bold text-2xl">Related Products</h2>
+            <div className="flex items-center justify-between">
+              <h2 className="font-bold text-2xl">Related Products</h2>
+              <Link to="/" className="text-[#f69e0a] text-[16px]">
+                View All
+              </Link>
+            </div>
             <div className="grid grid-cols-4 gap-5 mt-8">
               {isProductsLoading
                 ? "Loading..."
@@ -171,7 +175,7 @@ function Product() {
                     ?.filter((product) => product.id !== params.id)
                     .slice(0, 4)
                     .map((product) => (
-                      <ProductItem {...product} key={product.id}/>
+                      <ProductRelatedItem {...product} key={product.id} />
                     ))}
             </div>
           </div>

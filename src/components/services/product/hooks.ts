@@ -2,9 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import { getProduct, getProducts } from "./endpints";
 import type { IProduct } from "./types";
 
-
 export const useGetProducts = () => {
-  return useQuery<IProduct>({
+  return useQuery<IProduct[]>({
     queryKey: ["getProducts"],
     queryFn: getProducts,
   });
@@ -12,7 +11,7 @@ export const useGetProducts = () => {
 
 export const useGetProduct = (id: string | number) => {
   return useQuery({
-    queryKey: ["getProduct"],
+    queryKey: ["getProduct", id],
     queryFn: () => getProduct(id),
   });
 };
