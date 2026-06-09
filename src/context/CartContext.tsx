@@ -1,10 +1,12 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface ICartContext {
   handleAddToCart: (id: number, qty: number) => void;
   cartItems: ICartItem[];
   cartQty: number;
+  handleClearAll: () => void;
+  handleRemoveItem: (id: number) => void;
 }
 
 interface ICartProvider {
@@ -44,6 +46,16 @@ export default function CartProvider({ children }: ICartProvider) {
     });
   };
 
+  const handleClearAll = () => {  
+    setCartItems([]);
+  }
+
+  const handleRemoveItem = (id: number) => {
+    setCartItems((currentItem) => {
+        return currentItem.filter(item => item.id !== id);
+    })
+  }
+
 
   const cartQty = cartItems.reduce((sum, item) => sum + item.qty, 0);
   return (
@@ -52,6 +64,8 @@ export default function CartProvider({ children }: ICartProvider) {
         handleAddToCart,
         cartItems,
         cartQty,
+        handleClearAll,
+        handleRemoveItem
       }}
     >
       {children}

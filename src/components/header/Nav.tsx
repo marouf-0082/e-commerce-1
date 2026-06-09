@@ -1,10 +1,10 @@
 import { Container } from "../container/Container";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useCartContextProvider } from "../../context/CartContext";
-import { ShoppingCart , Search} from "lucide-react";
+import { ShoppingCart, Search } from "lucide-react";
 
 function Nav() {
-  const { cartItems, cartQty } = useCartContextProvider();
+  const { cartQty } = useCartContextProvider();
   return (
     <header className="fixed top-0 w-full h-18 shadow shadow-slate-300 bg-white flex items-center z-50">
       <Container>
@@ -17,7 +17,9 @@ function Nav() {
               <Search color="#333333" />
             </div>
             <div className="flex items-center relative">
-              <ShoppingCart color="#333333" />
+              <NavLink to={"/cart"}>
+                <ShoppingCart color="#333333" />
+              </NavLink>
               {cartQty > 0 && (
                 <span className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center rounded-full bg-[#f69e0a] text-white text-xs font-bold">
                   {cartQty}

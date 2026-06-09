@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Product from "./pages/Product";
 import CartProvider from "./context/CartContext";
 import ScrollToTop from "./components/scrollToTop/ScrollToTop";
+import Cart from "./pages/Cart";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/product/:id" element={<Product/>} />
+          <Route path="/cart" element={<Cart/>} />
         </Routes>
       </Layout>
     </CartProvider>

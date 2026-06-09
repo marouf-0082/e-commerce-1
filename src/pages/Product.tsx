@@ -19,7 +19,7 @@ function Product() {
   useEffect(() => {
     setSelectedQty(1);
   }, [params.id]);
-  
+
   return (
     <div>
       <Container>
@@ -27,7 +27,7 @@ function Product() {
           <nav className="mb-8">
             <Link
               to={"/"}
-              className="flex gap-2 text-[14px] hover:bg-[#fffde8] rounded-3xl px-3 py-2 w-max items-center"
+              className="flex gap-2 text-[14px] text-slate-500 hover:bg-[#fffde8] rounded-3xl px-3 py-2 w-max items-center hover:text-black transition-all duration-300"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
