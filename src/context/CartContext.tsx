@@ -1,7 +1,8 @@
 import { createContext, useContext, useState } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface ICartContext {
-  handleAddToCart: (id: number) => void;
+  handleAddToCart: (id: number, qty: number) => void;
   cartItems: ICartItem[];
   cartQty: number;
 }
@@ -22,9 +23,12 @@ export const useCartContextProvider = () => {
 };
 
 export default function CartProvider({ children }: ICartProvider) {
-  const [cartItems, setCartItems] = useState<ICartItem[]>([]);
-
-  const handleAddToCart = (id: number) => {
+  const [cartItems, setCartItems] = useLocalStorage<ICartItem[]>(
+    "cartItems",
+    []
+  );
+  
+  const handleAddToCart = (id: number, qty: number) => {
     setCartItems((currentItems) => {
       let selectItem = currentItems.find((item) => item.id == id);
       if (selectItem == null) {
@@ -32,19 +36,23 @@ export default function CartProvider({ children }: ICartProvider) {
       } else {
         return currentItems.map((item) => {
           if (item.id == id) {
-            return { ...item, qty: item.qty + 1 };
+            return { ...item, qty: item.qty + qty };
           }
           return item;
         });
       }
     });
-    console.log(cartItems);
   };
+
 
   const cartQty = cartItems.reduce((sum, item) => sum + item.qty, 0);
   return (
     <CartContext.Provider
-      value={{ handleAddToCart, cartItems, cartQty }}
+      value={{
+        handleAddToCart,
+        cartItems,
+        cartQty,
+      }}
     >
       {children}
     </CartContext.Provider>

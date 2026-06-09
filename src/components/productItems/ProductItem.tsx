@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import type { IProduct } from "../services/product/types";
 import { useCartContextProvider } from "../../context/CartContext";
+import { ShoppingCart } from "lucide-react";
 
 type IProductItem = IProduct;
 
@@ -58,10 +59,13 @@ function ProductItem({ name, price, image, id }: IProductItem) {
           <span className="font-semibold text-[20px]">${price.toFixed(2)}</span>
         </div>
         <button
-          onClick={() => handleAddToCart(id)}
+          onClick={() => handleAddToCart(id , 1)}
           className={`block text-center bg-[#f69e0a] w-full rounded-3xl py-1.5 mt-3`}
         >
-          Add to Cart
+          <div className="flex items-center justify-center gap-2">
+            <ShoppingCart size={16} color="#000000" />
+            <span>Add to Cart</span>
+          </div>
         </button>
       </div>
     </div>
