@@ -7,14 +7,19 @@ import {
 import FeatureBar from "../components/featureBar/FeatureBar";
 import ProductRelatedItem from "../components/productItems/ProductRelatedItem";
 import { useCartContextProvider } from "../context/CartContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Product() {
   const params = useParams<{ id: string }>();
   const { data: product, isLoading } = useGetProduct(params.id as string);
   const { data: products, isLoading: isProductsLoading } = useGetProducts();
-  const {handleAddToCart} = useCartContextProvider();
+  const { handleAddToCart } = useCartContextProvider();
   const [selectedQty, setSelectedQty] = useState<number>(1);
+
+  useEffect(() => {
+    setSelectedQty(1);
+  }, [params.id]);
+  
   return (
     <div>
       <Container>
@@ -146,15 +151,39 @@ function Product() {
                   <div>
                     <label htmlFor="quantity">Quantity</label>
                     <div className="grid grid-cols-3 border border-gray-300 w-35 h-11 items-center justify-around mt-2 rounded-3xl ">
-                      <div className="w-full h-full rounded-l-3xl flex items-center justify-center text-2xl cursor-pointer text-center hover:bg-gray-200">-</div>
+                      <button
+                        className={`w-full h-full rounded-l-3xl flex items-center justify-center text-2xl cursor-pointer text-center hover:bg-yellow-50 ${selectedQty === 1 && " cursor-not-allowed hover:bg-transparent opacity-20 cursor "}`}
+                        onClick={() =>
+                          setSelectedQty(Math.max(1, selectedQty - 1))
+                        }
+                      >
+                        -
+                      </button>
                       <span className="text-center">
-                        <input type="number" value={selectedQty} onChange={(e) => setSelectedQty(parseInt(e.target.value) || 1)} className="w-12 outline-none px-4"/>
+                        <input
+                          type="number"
+                          value={selectedQty}
+                          onChange={(e) =>
+                            setSelectedQty(parseInt(e.target.value) || 1)
+                          }
+                          className="w-12 outline-none px-4"
+                        />
                       </span>
-                      <div className="w-full h-full rounded-r-3xl flex items-center justify-center text-2xl hover:bg-gray-200 cursor-pointer text-center">+</div>
+                      <button
+                        className="w-full h-full rounded-r-3xl flex items-center justify-center text-2xl  cursor-pointer text-center hover:bg-yellow-50"
+                        onClick={() => setSelectedQty(selectedQty + 1)}
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
                   <div className="flex justify-between mt-4">
-                    <button onClick={() => handleAddToCart(product.id , selectedQty || 1)} className="px-32 py-2 bg-[#f69e0a] rounded-3xl text-[15px] hover:bg-[#ffa408] transition-colors duration-300">
+                    <button
+                      onClick={() =>
+                        handleAddToCart(product.id, selectedQty || 1)
+                      }
+                      className="px-32 py-2 bg-[#f69e0a] rounded-3xl text-[15px] hover:bg-[#ffa408] transition-colors duration-300"
+                    >
                       Add to Cart
                     </button>
                     <button className="px-32 py-2 border border-gray-200 shadow rounded-3xl text-[15px] hover:bg-[#fffbef] transition-colors duration-300">
