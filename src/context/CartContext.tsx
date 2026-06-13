@@ -50,19 +50,18 @@ export default function CartProvider({ children }: ICartProvider) {
   };
 
   const handleUpdateProduct = (id: number, type: TUpdateType) => {
-    setCartItems((items) =>
-      items
-        .map((item) => {
-          if (item.id !== id) return item;
+    setCartItems((currentItems) =>
+      currentItems.map((item) => {
+        if (item.id !== id) return item;
 
-          const newQty = type === "increment" ? item.qty + 1 : item.qty - 1;
+        const newQty =
+          type === "increment" ? item.qty + 1 : Math.max(1, item.qty - 1);
 
-          return {
-            ...item,
-            qty: newQty,
-          };
-        })
-        .filter((item) => item.qty > 0)
+        return {
+          ...item,
+          qty: newQty,
+        };
+      })
     );
   };
 
