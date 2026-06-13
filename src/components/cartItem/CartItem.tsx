@@ -12,12 +12,14 @@ interface ICartItem {
 function CartItem({ id, qty }: ICartItem) {
   const [product, setProduct] = useState<IProduct>();
   const { handleRemoveItem } = useCartContextProvider();
+  const totalPrice = (product?.price ?? 0) * qty;
 
   useEffect(() => {
     getProduct(id).then((res) => {
       setProduct(res);
     });
   }, []);
+
   return (
     <div className="flex gap-5 mt-8">
       <div className="w-28 h-25 rounded-3xl overflow-hidden">
@@ -27,8 +29,7 @@ function CartItem({ id, qty }: ICartItem) {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="w-full">
-        {" "}
+      <div className="w-full flex justify-between flex-col">
         <div className="flex items-center justify-between">
           <div>
             <h3>{product?.name}</h3>
@@ -38,7 +39,24 @@ function CartItem({ id, qty }: ICartItem) {
             <Trash size={16} color="#141414" />
           </button>
         </div>
-        <div></div>
+        <div className="flex items-center justify-between">
+          <div className="border border-gray-200 rounded-3xl h-10">
+            <button className="h-full w-10">-</button>
+            <input
+              type="number"
+              value={qty}
+              className="w-8 text-center"
+            />
+            <button
+              className="h-full w-10"
+            >
+              +
+            </button>
+          </div>
+          <span className="text-[18px] font-bold">
+            ${totalPrice.toFixed(2)}
+          </span>
+        </div>
       </div>
     </div>
   );
