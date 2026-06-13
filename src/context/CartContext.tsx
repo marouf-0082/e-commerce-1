@@ -7,6 +7,7 @@ interface ICartContext {
   cartQty: number;
   handleClearAll: () => void;
   handleRemoveItem: (id: number) => void;
+  handleUpdateProduct: (id: number, type: TUpdateType) => void;
 }
 
 interface ICartProvider {
@@ -17,6 +18,8 @@ interface ICartItem {
   id: number;
   qty: number;
 }
+
+type TUpdateType = "increment" | "decrement";
 
 const CartContext = createContext({} as ICartContext);
 
@@ -29,12 +32,12 @@ export default function CartProvider({ children }: ICartProvider) {
     "cartItems",
     []
   );
-  
+
   const handleAddToCart = (id: number, qty: number) => {
     setCartItems((currentItems) => {
       let selectItem = currentItems.find((item) => item.id == id);
       if (selectItem == null) {
-        return [...currentItems, { id: id, qty: 1 }];
+        return [...currentItems, { id: id, qty: qty }];
       } else {
         return currentItems.map((item) => {
           if (item.id == id) {
@@ -46,16 +49,32 @@ export default function CartProvider({ children }: ICartProvider) {
     });
   };
 
-  const handleClearAll = () => {  
+  const handleUpdateProduct = (id: number, type: TUpdateType) => {
+    setCartItems((items) =>
+      items
+        .map((item) => {
+          if (item.id !== id) return item;
+
+          const newQty = type === "increment" ? item.qty + 1 : item.qty - 1;
+
+          return {
+            ...item,
+            qty: newQty,
+          };
+        })
+        .filter((item) => item.qty > 0)
+    );
+  };
+
+  const handleClearAll = () => {
     setCartItems([]);
-  }
+  };
 
   const handleRemoveItem = (id: number) => {
     setCartItems((currentItem) => {
-        return currentItem.filter(item => item.id !== id);
-    })
-  }
-
+      return currentItem.filter((item) => item.id !== id);
+    });
+  };
 
   const cartQty = cartItems.reduce((sum, item) => sum + item.qty, 0);
   return (
@@ -65,7 +84,8 @@ export default function CartProvider({ children }: ICartProvider) {
         cartItems,
         cartQty,
         handleClearAll,
-        handleRemoveItem
+        handleRemoveItem,
+        handleUpdateProduct,
       }}
     >
       {children}

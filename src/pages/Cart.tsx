@@ -31,7 +31,7 @@ function Cart() {
             <div className="grid grid-cols-3 mt-5">
               <div className="col-span-2 p-8 border border-gray-300 rounded-3xl">
                 <div className="flex items-center justify-between ">
-                  <h3 className="text-2xl font-bold">cart Items</h3>
+                  <h3 className="text-2xl font-bold">Cart Items</h3>
                   <div>
                     <button
                       onClick={handleClearAll}

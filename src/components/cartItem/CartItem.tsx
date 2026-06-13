@@ -11,7 +11,7 @@ interface ICartItem {
 
 function CartItem({ id, qty }: ICartItem) {
   const [product, setProduct] = useState<IProduct>();
-  const { handleRemoveItem } = useCartContextProvider();
+  const { handleRemoveItem, handleUpdateProduct} = useCartContextProvider();
   const totalPrice = (product?.price ?? 0) * qty;
 
   useEffect(() => {
@@ -41,13 +41,15 @@ function CartItem({ id, qty }: ICartItem) {
         </div>
         <div className="flex items-center justify-between">
           <div className="border border-gray-200 rounded-3xl h-10">
-            <button className="h-full w-10">-</button>
-            <input
-              type="number"
-              value={qty}
-              className="w-8 text-center"
-            />
             <button
+              onClick={() => handleUpdateProduct(id, "decrement")}
+              className="h-full w-10"
+            >
+              -
+            </button>
+            <input type="number" value={qty} className="w-8 text-center" />
+            <button
+              onClick={() => handleUpdateProduct(id, "increment")}
               className="h-full w-10"
             >
               +
