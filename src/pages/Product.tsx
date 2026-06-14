@@ -8,6 +8,7 @@ import FeatureBar from "../components/featureBar/FeatureBar";
 import ProductRelatedItem from "../components/productItems/ProductRelatedItem";
 import { useCartContextProvider } from "../context/CartContext";
 import { useState, useEffect } from "react";
+import { Minus, Plus } from "lucide-react";
 
 function Product() {
   const params = useParams<{ id: string }>();
@@ -157,7 +158,7 @@ function Product() {
                           setSelectedQty(Math.max(1, selectedQty - 1))
                         }
                       >
-                        -
+                        <Minus size={16}/>
                       </button>
                       <span className="text-center">
                         <input
@@ -173,7 +174,7 @@ function Product() {
                         className="w-full h-full rounded-r-3xl flex items-center justify-center text-2xl  cursor-pointer text-center hover:bg-yellow-50"
                         onClick={() => setSelectedQty(selectedQty + 1)}
                       >
-                        +
+                        <Plus size={16}/>
                       </button>
                     </div>
                   </div>
