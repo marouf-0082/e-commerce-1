@@ -158,7 +158,7 @@ function Product() {
                           setSelectedQty(Math.max(1, selectedQty - 1))
                         }
                       >
-                        <Minus size={16}/>
+                        <Minus size={16} />
                       </button>
                       <span className="text-center">
                         <input
@@ -167,21 +167,25 @@ function Product() {
                           onChange={(e) =>
                             setSelectedQty(parseInt(e.target.value) || 1)
                           }
-                          className="w-12 outline-none px-4"
+                          className="w-12 outline-none text-center"
                         />
                       </span>
                       <button
                         className="w-full h-full rounded-r-3xl flex items-center justify-center text-2xl  cursor-pointer text-center hover:bg-yellow-50"
                         onClick={() => setSelectedQty(selectedQty + 1)}
                       >
-                        <Plus size={16}/>
+                        <Plus size={16} />
                       </button>
                     </div>
                   </div>
                   <div className="flex justify-between mt-4">
                     <button
                       onClick={() =>
-                        handleAddToCart(product.id, selectedQty || 1)
+                        handleAddToCart(
+                          product.id,
+                          selectedQty || 1,
+                          product.price
+                        )
                       }
                       className="px-32 py-2 bg-[#f69e0a] rounded-3xl text-[15px] hover:bg-[#ffa408] transition-colors duration-300"
                     >

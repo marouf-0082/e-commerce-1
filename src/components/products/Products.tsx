@@ -4,7 +4,6 @@ import ProductItem from "../productItems/ProductItem";
 
 function Products() {
   const { data, isLoading } = useGetProducts();
-  console.log(data);
   return (
     <Container>
       <div className="grid gap-6 sm:grid-cols-3 px-32 py-18">

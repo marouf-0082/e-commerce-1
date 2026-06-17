@@ -5,16 +5,16 @@ import { ShoppingCart } from "lucide-react";
 
 type IProductItem = IProduct;
 
-function ProductItem({ name, price, image, id }: IProductItem) {
+function ProductItem(product: IProductItem) {
   const { handleAddToCart } = useCartContextProvider();
 
   return (
     <div className="shadow-md border border-slate-200 rounded-3xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-      <Link to={`/product/${id}`}>
+      <Link to={`/product/${product.id}`}>
         <div className="group/cart relative w-full h-102 overflow-hidden rounded-t-3xl">
           <img
-            src={image}
-            alt={name}
+            src={product.image}
+            alt={product.name}
             className="w-full h-full object-cover group-hover:scale-110  transition-all duration-300"
           />
           <div className="absolute top-0 w-full h-full rounded-t-3xl opacity-0 group-hover/cart:opacity-100 backdrop-blur-xs transition-all duration-300">
@@ -51,15 +51,15 @@ function ProductItem({ name, price, image, id }: IProductItem) {
       </Link>
       <div className="m-3">
         <div className="flex flex-col">
-          <Link to={`/product/${id}`}>
+          <Link to={`/product/${product.id}`}>
             <h2 className="inline font-[500] hover:text-[#f69e0a] transition-colors duration-300">
-              {name}
+              {product.name}
             </h2>
           </Link>
-          <span className="font-semibold text-[20px]">${price.toFixed(2)}</span>
+          <span className="font-semibold text-[20px]">${product.price.toFixed(2)}</span>
         </div>
         <button
-          onClick={() => handleAddToCart(id , 1)}
+          onClick={() => handleAddToCart(product.id , 1, product.price)}
           className={`block text-center bg-[#f69e0a] w-full rounded-3xl py-1.5 mt-3`}
         >
           <div className="flex items-center justify-center gap-2">

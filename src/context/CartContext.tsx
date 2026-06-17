@@ -1,13 +1,16 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface ICartContext {
-  handleAddToCart: (id: number, qty: number) => void;
+  handleAddToCart: (id: number, qty: number, price: number) => void;
   cartItems: ICartItem[];
   cartQty: number;
   handleClearAll: () => void;
   handleRemoveItem: (id: number) => void;
   handleUpdateProduct: (id: number, type: TUpdateType) => void;
+  subTotal: number;
+  tax: number;
+  total: number;
 }
 
 interface ICartProvider {
@@ -17,6 +20,7 @@ interface ICartProvider {
 interface ICartItem {
   id: number;
   qty: number;
+  price: number;
 }
 
 type TUpdateType = "increment" | "decrement";
@@ -32,16 +36,15 @@ export default function CartProvider({ children }: ICartProvider) {
     "cartItems",
     []
   );
-
-  const handleAddToCart = (id: number, qty: number) => {
+  const handleAddToCart = (id: number, qty: number, price: number) => {
     setCartItems((currentItems) => {
       let selectItem = currentItems.find((item) => item.id == id);
       if (selectItem == null) {
-        return [...currentItems, { id: id, qty: qty }];
+        return [...currentItems, { id: id, qty: qty, price: price }];
       } else {
         return currentItems.map((item) => {
           if (item.id == id) {
-            return { ...item, qty: item.qty + qty };
+            return { ...item, qty: item.qty + qty, price: item.price };
           }
           return item;
         });
@@ -76,6 +79,16 @@ export default function CartProvider({ children }: ICartProvider) {
   };
 
   const cartQty = cartItems.reduce((sum, item) => sum + item.qty, 0);
+  const subTotal = cartItems.reduce(
+    (sum, item) => sum + item.price * item.qty,
+    0
+  );
+  const tax = cartItems.reduce(
+    (sum, item) => sum + item.price * 0.08 * item.qty,
+    0
+  );
+
+  const total = subTotal + tax;
   return (
     <CartContext.Provider
       value={{
@@ -85,6 +98,9 @@ export default function CartProvider({ children }: ICartProvider) {
         handleClearAll,
         handleRemoveItem,
         handleUpdateProduct,
+        subTotal,
+        tax,
+        total,
       }}
     >
       {children}

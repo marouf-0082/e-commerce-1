@@ -13,7 +13,7 @@ interface ICartItem {
 function CartItem({ id, qty }: ICartItem) {
   const [product, setProduct] = useState<IProduct>();
   const { handleRemoveItem, handleUpdateProduct } = useCartContextProvider();
-  const totalPrice = (product?.price ?? 0) * qty;
+  const totalPriceEachProduct = (product?.price ?? 0) * qty;
 
   useEffect(() => {
     getProduct(id).then((res) => {
@@ -38,7 +38,7 @@ function CartItem({ id, qty }: ICartItem) {
           </div>
           <Button
             onClick={() => handleRemoveItem(id)}
-            className="group hover:bg-yellow-50 p-2 transition-all duration-300"
+            className="group rounded-full hover:bg-yellow-50 p-2 transition-all duration-300"
           >
             <Trash
               size={16}
@@ -58,7 +58,7 @@ function CartItem({ id, qty }: ICartItem) {
               <input
                 type="number"
                 value={qty}
-                className="w-13 text-center outline-none px-4"
+                className="w-13 text-center outline-none"
               />
             </span>
             <Button
@@ -69,7 +69,7 @@ function CartItem({ id, qty }: ICartItem) {
             </Button>
           </div>
           <span className="text-[18px] font-bold">
-            ${totalPrice.toFixed(2)}
+            ${totalPriceEachProduct.toFixed(2)}
           </span>
         </div>
       </div>
