@@ -8,7 +8,7 @@ import OrderSummary from "../components/ordersummary/OrderSummary";
 function Cart() {
   const { cartQty, cartItems, handleClearAll } = useCartContextProvider();
   return (
-    <div className="mt-25">
+    <div className="mt-25 mb-20">
       <Container>
         {cartQty > 0 ? (
           <div>
@@ -35,9 +35,9 @@ function Cart() {
               </div>
             </div>
             <div className="grid grid-cols-3 mt-5 gap-5">
-              <div className="col-span-2 p-8 border border-gray-300 rounded-3xl shadow-sm">
+              <div className="col-span-2 p-6 border border-gray-200 rounded-3xl shadow">
                 <div className="flex items-center justify-between ">
-                  <h3 className="text-[17px] text-[#262626] font-bold">
+                  <h3 className="text-[18px] text-[#262626] font-bold">
                     Cart Items
                   </h3>
                   <div>
@@ -57,7 +57,7 @@ function Cart() {
                   <CartItem {...item} key={item.id} />
                 ))}
               </div>
-              <div className="col-span-1 p-5 border border-gray-300 rounded-3xl shadow-sm">
+              <div className="col-span-1 h-96 p-6 border border-gray-200 rounded-3xl shadow sticky top-1/12">
                 <OrderSummary/>
               </div>
             </div>

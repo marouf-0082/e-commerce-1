@@ -21,7 +21,7 @@ function Nav() {
                 <ShoppingCart color="#333333" />
               </NavLink>
               {cartQty > 0 && (
-                <span className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center rounded-full bg-[#f69e0a] text-white text-xs font-bold">
+                <span className="absolute -top-2 -right-3 w-5 h-5 flex items-center justify-center rounded-full bg-[#f69e0a] text-white text-xs font-bold">
                   {cartQty}
                 </span>
               )}

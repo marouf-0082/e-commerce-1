@@ -1,11 +1,13 @@
+import { CreditCard, Shield , Truck , Heart} from "lucide-react";
 import { useCartContextProvider } from "../../context/CartContext";
+import Button from "../../ui/Button";
 
 function OrderSummary() {
   const { cartQty, subTotal, tax, total } = useCartContextProvider();
 
   return (
     <>
-      <div className="py-4 text-[#262626] font-bold">
+      <div className="pb-4 text-[#262626] font-bold text-[18px]">
         <h2>Order Summary</h2>
       </div>
       <div>
@@ -16,19 +18,37 @@ function OrderSummary() {
           </div>
           <div className="flex items-center justify-between pb-2 text-[14px]">
             <span className="text-[#697280]">Shipping</span>
-            <div>free</div>
+            <span className="px-2 bg-[#F3F4F6] rounded-3xl">Free</span>
           </div>
           <div className="flex items-center justify-between border-b border-gray-300 pb-2 text-[14px]">
             <span className="text-[#697280]">Tax</span>
             <span>${tax.toFixed(2)}</span>
           </div>
           <div className="flex items-center justify-between pt-2">
-            <h2 className="text-[#262626]">Total</h2>
-            <span>${total.toFixed(2)}</span>
+            <h2 className="text-[#262626] text-[18px]">Total</h2>
+            <span className="text-[#FC9D0F] font-bold">${total.toFixed(2)}</span>
           </div>
         </div>
-        <div></div>
-        <div></div>
+        <div className="border-b border-gray-300 pb-4">
+          <Button className="flex gap-2 w-full justify-center items-center rounded-3xl py-2 text-[14px] bg-[#FC9D0F] hover:bg-[#fda41d]">
+            <CreditCard size={16} />
+            Proceed to Checkout
+          </Button>
+        </div>
+        <div className="pt-3 flex flex-col gap-2">
+          <div className="flex gap-3 items-center">
+            <Shield size={16} color="#00C753" strokeWidth={1.75} />
+            <p>Secure SSL checkout</p>
+          </div>
+          <div className="flex gap-3 items-center">
+            <Truck size={16} color="#0083FF" strokeWidth={1.75} />
+            <p>Free returns within 30 days</p>
+          </div>
+          <div className="flex gap-3 items-center">
+            <Heart size={16} color="#FF2D35" strokeWidth={1.75} />
+            <p>24/7 customer support</p>
+          </div>
+        </div>
       </div>
     </>
   );

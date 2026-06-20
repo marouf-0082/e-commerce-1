@@ -22,7 +22,7 @@ function CartItem({ id, qty }: ICartItem) {
   }, []);
 
   return (
-    <div className="flex gap-5 mt-8">
+    <div className="flex gap-5 mt-4">
       <div className="w-28 h-25 rounded-3xl overflow-hidden">
         <img
           src={product?.image}
