@@ -9,6 +9,7 @@ import ProductRelatedItem from "../components/productItems/ProductRelatedItem";
 import { useCartContextProvider } from "../context/CartContext";
 import { useState, useEffect } from "react";
 import { Minus, Plus } from "lucide-react";
+import Loader from "../components/loader/Loader";
 
 function Product() {
   const params = useParams<{ id: string }>();
@@ -47,7 +48,7 @@ function Product() {
             </Link>
           </nav>
           {isLoading ? (
-            "Loading..."
+            <Loader size="xl"/>
           ) : (
             <div className="grid grid-cols-2 gap-12 px-20">
               <div className="w-full max-w-[500px] px-4 mx-auto">
@@ -208,15 +209,19 @@ function Product() {
                 View All
               </Link>
             </div>
-            <div className="grid grid-cols-4 gap-5 mt-8">
-              {isProductsLoading
-                ? "Loading..."
-                : products
+            <div>
+              {isProductsLoading ? (
+                  <Loader size="lg"/>
+              ) : (
+                <div className="grid grid-cols-4 gap-5 mt-8">
+                  {products
                     ?.filter((product) => product.id !== params.id)
                     .slice(0, 4)
                     .map((product) => (
                       <ProductRelatedItem {...product} key={product.id} />
                     ))}
+                </div>
+              )}
             </div>
           </div>
         </div>

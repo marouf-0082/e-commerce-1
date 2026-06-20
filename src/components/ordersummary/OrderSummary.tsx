@@ -30,7 +30,7 @@ function OrderSummary() {
           </div>
         </div>
         <div className="border-b border-gray-300 pb-4">
-          <Button className="flex gap-2 w-full justify-center items-center rounded-3xl py-2 text-[14px] bg-[#FC9D0F] hover:bg-[#fda41d]">
+          <Button className="flex gap-2 w-full justify-center items-center rounded-3xl py-2 text-[14px] bg-[#FC9D0F] hover:bg-[#fda41d] transition-all duration-300">
             <CreditCard size={16} />
             Proceed to Checkout
           </Button>

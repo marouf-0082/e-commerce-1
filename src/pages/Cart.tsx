@@ -9,7 +9,6 @@ import EmptyCart from "../components/emptyCart/EmptyCart";
 import React from "react";
 function Cart() {
   const { cartQty, cartItems, handleClearAll } = useCartContextProvider();
-  console.log(cartItems.length);
   return (
     <div className="mt-25 mb-20">
       <Container>
@@ -59,7 +58,9 @@ function Cart() {
                 {cartItems.map((item, index) => (
                   <React.Fragment key={item.id}>
                     <CartItem {...item} />
-                    {index !== cartItems.length - 1 &&  <hr className="border-gray-200 my-4"/>}
+                    {index !== cartItems.length - 1 && (
+                      <hr className="border-gray-200 my-4" />
+                    )}
                   </React.Fragment>
                 ))}
               </div>

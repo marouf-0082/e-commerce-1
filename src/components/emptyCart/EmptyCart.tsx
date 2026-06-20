@@ -17,7 +17,7 @@ function EmptyCart() {
           <div className="flex items-center flex-col justify-center">
             <Link
               to={"/"}
-              className="px-8 py-2 bg-[#FC9D0F] rounded-3xl text-[14px] hover:bg-[#fda41d]"
+              className="px-8 py-2 bg-[#FC9D0F] rounded-3xl text-[14px] hover:bg-[#fda41d] transition-all duration-300"
             >
               Continue Shopping
             </Link>
