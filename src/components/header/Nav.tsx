@@ -16,7 +16,7 @@ function Nav() {
             <div className="flex items-center">
               <Search color="#333333" />
             </div>
-            <div className="flex items-center relative">
+            <div className="flex items-center relative cursor-pointer">
               <NavLink to={"/cart"}>
                 <ShoppingCart color="#333333" />
               </NavLink>

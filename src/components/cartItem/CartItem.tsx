@@ -22,7 +22,7 @@ function CartItem({ id, qty }: ICartItem) {
   }, []);
 
   return (
-    <div className="flex gap-5 mt-4">
+    <div className="flex gap-5">
       <div className="w-28 h-25 rounded-3xl overflow-hidden">
         <img
           src={product?.image}
@@ -59,6 +59,7 @@ function CartItem({ id, qty }: ICartItem) {
                 type="number"
                 value={qty}
                 className="w-13 text-center outline-none"
+                readOnly
               />
             </span>
             <Button

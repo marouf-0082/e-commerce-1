@@ -5,8 +5,11 @@ import { Trash, ArrowLeft } from "lucide-react";
 import CartItem from "../components/cartItem/CartItem";
 import Button from "../ui/Button";
 import OrderSummary from "../components/ordersummary/OrderSummary";
+import EmptyCart from "../components/emptyCart/EmptyCart";
+import React from "react";
 function Cart() {
   const { cartQty, cartItems, handleClearAll } = useCartContextProvider();
+  console.log(cartItems.length);
   return (
     <div className="mt-25 mb-20">
       <Container>
@@ -34,8 +37,8 @@ function Cart() {
                 </Link>
               </div>
             </div>
-            <div className="grid grid-cols-3 mt-5 gap-5">
-              <div className="col-span-2 p-6 border border-gray-200 rounded-3xl shadow">
+            <div className="grid grid-cols-3 mt-5 gap-6">
+              <div className="col-span-2 p-6 self-start border border-gray-200 rounded-3xl shadow">
                 <div className="flex items-center justify-between ">
                   <h3 className="text-[18px] text-[#262626] font-bold">
                     Cart Items
@@ -53,19 +56,20 @@ function Cart() {
                     </Button>
                   </div>
                 </div>
-                {cartItems.map((item) => (
-                  <CartItem {...item} key={item.id} />
+                {cartItems.map((item, index) => (
+                  <React.Fragment key={item.id}>
+                    <CartItem {...item} />
+                    {index !== cartItems.length - 1 &&  <hr className="border-gray-200 my-4"/>}
+                  </React.Fragment>
                 ))}
               </div>
               <div className="col-span-1 h-96 p-6 border border-gray-200 rounded-3xl shadow sticky top-1/12">
-                <OrderSummary/>
+                <OrderSummary />
               </div>
             </div>
           </div>
         ) : (
-          <h2 className="text-2xl font-semibold">
-            You have {cartQty} items in your cart.
-          </h2>
+          <EmptyCart />
         )}
       </Container>
     </div>
