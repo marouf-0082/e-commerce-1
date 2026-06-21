@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import type { IProduct } from "../services/product/types";
 import { useCartContextProvider } from "../../context/CartContext";
 import { ShoppingCart } from "lucide-react";
+import Button from "../../ui/Button";
 
 type IProductItem = IProduct;
 
@@ -30,8 +31,8 @@ function ProductItem(product: IProductItem) {
                 <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
               </svg>
             </div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#f69e0a] inline py-1.5 px-3 rounded-3xl">
-              <span className="flex items-center gap-4 text-[14px]">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+              <Button className="btn primary-btn flex items-center gap-4 px-3 py-1.5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -44,7 +45,7 @@ function ProductItem(product: IProductItem) {
                   <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
                 </svg>
                 Quick View
-              </span>
+              </Button>
             </div>
           </div>
         </div>
@@ -58,15 +59,15 @@ function ProductItem(product: IProductItem) {
           </Link>
           <span className="font-semibold text-[20px]">${product.price.toFixed(2)}</span>
         </div>
-        <button
+        <Button
           onClick={() => handleAddToCart(product.id , 1, product.price)}
-          className={`block text-center bg-[#f69e0a] w-full rounded-3xl py-1.5 mt-3`}
+          className={`btn primary-btn block w-full mt-3`}
         >
           <div className="flex items-center justify-center gap-2">
             <ShoppingCart size={16} color="#000000" />
             <span>Add to Cart</span>
           </div>
-        </button>
+        </Button>
       </div>
     </div>
   );

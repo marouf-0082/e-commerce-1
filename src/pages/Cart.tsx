@@ -38,7 +38,7 @@ function Cart() {
             </div>
             <div className="grid grid-cols-3 mt-5 gap-6">
               <div className="col-span-2 p-6 self-start border border-gray-200 rounded-3xl shadow">
-                <div className="flex items-center justify-between ">
+                <div className="flex items-center justify-between pb-3">
                   <h3 className="text-[18px] text-[#262626] font-bold">
                     Cart Items
                   </h3>

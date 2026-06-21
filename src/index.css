@@ -32,3 +32,15 @@ input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
+
+@layer components {
+  .btn {
+    @apply text-[14px] text-center w-full py-2 rounded-3xl
+  }
+  .primary-btn {
+    @apply bg-[#FC9D0F] hover:bg-[#ffa408] transition-colors duration-300
+  }
+  .secondry-btn {
+    @apply bg-[#FFFFFF] shadow-md border border-gray-50 hover:bg-[#fffbf1] transition-colors duration-300 
+  }
+}

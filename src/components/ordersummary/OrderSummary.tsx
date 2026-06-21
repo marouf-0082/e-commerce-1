@@ -13,7 +13,7 @@ function OrderSummary() {
       <div>
         <div className="pb-4">
           <div className="flex items-center justify-between pb-2 text-[14px]">
-            <span className="text-[#697280]">Subtotal ({cartQty} items)</span>
+            <span className="text-[#697280]">Subtotal ({cartQty} {cartQty == 1 ? 'item' : 'items'})</span>
             <span>${subTotal.toFixed(2)}</span>
           </div>
           <div className="flex items-center justify-between pb-2 text-[14px]">
@@ -30,7 +30,7 @@ function OrderSummary() {
           </div>
         </div>
         <div className="border-b border-gray-300 pb-4">
-          <Button className="flex gap-2 w-full justify-center items-center rounded-3xl py-2 text-[14px] bg-[#FC9D0F] hover:bg-[#fda41d] transition-all duration-300">
+          <Button className="btn primary-btn flex gap-2 w-full justify-center items-center">
             <CreditCard size={16} />
             Proceed to Checkout
           </Button>

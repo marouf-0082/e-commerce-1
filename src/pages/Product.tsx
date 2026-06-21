@@ -8,8 +8,9 @@ import FeatureBar from "../components/featureBar/FeatureBar";
 import ProductRelatedItem from "../components/productItems/ProductRelatedItem";
 import { useCartContextProvider } from "../context/CartContext";
 import { useState, useEffect } from "react";
-import { Minus, Plus } from "lucide-react";
+import { Minus, Plus, ShoppingCart } from "lucide-react";
 import Loader from "../components/loader/Loader";
+import Button from "../ui/Button";
 
 function Product() {
   const params = useParams<{ id: string }>();
@@ -179,8 +180,8 @@ function Product() {
                       </button>
                     </div>
                   </div>
-                  <div className="flex justify-between mt-4">
-                    <button
+                  <div className="flex justify-between mt-4 gap-4">
+                    <Button
                       onClick={() =>
                         handleAddToCart(
                           product.id,
@@ -188,13 +189,14 @@ function Product() {
                           product.price
                         )
                       }
-                      className="px-32 py-2 bg-[#f69e0a] rounded-3xl text-[15px] hover:bg-[#ffa408] transition-colors duration-300"
+                      className="btn primary-btn flex justify-center items-center gap-2"
                     >
+                      <ShoppingCart size={16} color="#000000" />
                       Add to Cart
-                    </button>
-                    <button className="px-32 py-2 border border-gray-200 shadow rounded-3xl text-[15px] hover:bg-[#fffbef] transition-colors duration-300">
+                    </Button>
+                    <Link to={'/cart'} className="btn secondry-btn" onClick={() => handleAddToCart(product.id, selectedQty || 1, product.price)}>
                       Buy Now
-                    </button>
+                    </Link>
                   </div>
                   <div></div>
                 </div>
@@ -215,7 +217,7 @@ function Product() {
               ) : (
                 <div className="grid grid-cols-4 gap-5 mt-8">
                   {products
-                    ?.filter((product) => product.id !== params.id)
+                    ?.filter((product) => params.id !== product.id)
                     .slice(0, 4)
                     .map((product) => (
                       <ProductRelatedItem {...product} key={product.id} />
