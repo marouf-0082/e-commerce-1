@@ -19,7 +19,7 @@ function ProductItem(product: IProductItem) {
             className="w-full h-full object-cover group-hover:scale-110  transition-all duration-300"
           />
           <div className="absolute top-0 w-full h-full rounded-t-3xl opacity-0 group-hover/cart:opacity-100 backdrop-blur-xs transition-all duration-300">
-            <div className="fixed top-3 right-3 w-9 h-9 bg-white rounded-full group/heart flex items-center justify-center">
+            <div className="fixed top-3 right-3 w-9 h-9 bg-white rounded-full group/heart flex items-center justify-center" onClick={(e) => e.preventDefault()}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
