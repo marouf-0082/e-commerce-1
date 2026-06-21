@@ -164,6 +164,7 @@ function Product() {
                       </button>
                       <span className="text-center">
                         <input
+                        readOnly
                           type="number"
                           value={selectedQty}
                           onChange={(e) =>
@@ -194,7 +195,7 @@ function Product() {
                       <ShoppingCart size={16} color="#000000" />
                       Add to Cart
                     </Button>
-                    <Link to={'/cart'} className="btn secondry-btn" onClick={() => handleAddToCart(product.id, selectedQty || 1, product.price)}>
+                    <Link to={'/cart'} className="btn secondry-btn shadow-md border border-gray-50 cursor-default" onClick={() => handleAddToCart(product.id, selectedQty || 1, product.price)}>
                       Buy Now
                     </Link>
                   </div>
