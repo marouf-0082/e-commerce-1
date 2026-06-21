@@ -10,7 +10,7 @@ import React from "react";
 function Cart() {
   const { cartQty, cartItems, handleClearAll } = useCartContextProvider();
   return (
-    <div className="mt-25 mb-20">
+    <div className="mt-25 mb-8">
       <Container>
         {cartQty > 0 ? (
           <div>
@@ -66,6 +66,15 @@ function Cart() {
               </div>
               <div className="col-span-1 h-96 p-6 border border-gray-200 rounded-3xl shadow sticky top-1/12">
                 <OrderSummary />
+              </div>
+            </div>
+            <div className="border border-gray-200 shadow-md rounded-3xl mt-15">
+              <div className="p-6">
+                <h3>You might also like</h3>
+              </div>
+              <div className="flex flex-col items-center justify-center gap-4 py-12">
+                <p>Discover more products that match your style</p>
+                <Link to={'/'} className="secondry-btn shadow-md px-3 py-1 text-[14px] border border-gray-200 rounded-3xl">Browse Products</Link>
               </div>
             </div>
           </div>

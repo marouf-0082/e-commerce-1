@@ -13,7 +13,7 @@ function Nav() {
           <Link to={"/"} className="text-2xl group-hover:text-[#363636]">
             BLOOM<span className="text-[#f69e0a]">SHOP</span>
           </Link>
-          <div className="flex gap-8 items-center">
+          <div className="flex gap-4 items-center">
             <div className="flex items-center">
               <Search color="#333333" />
             </div>
@@ -27,7 +27,7 @@ function Nav() {
                 </span>
               )}
             </div>
-            <div className="flex gap-4 h-7">
+            <div className="flex gap-2 h-7">
               <Button className="secondry-btn text-[14px] rounded-3xl px-2 hover:text-[#7c4b01]">Sign In</Button>
               <Button className="primary-btn text-[14px] px-3 rounded-3xl">
                 Sign Up
