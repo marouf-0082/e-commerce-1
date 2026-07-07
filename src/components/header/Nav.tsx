@@ -3,9 +3,11 @@ import { Link, NavLink } from "react-router-dom";
 import { useCartContextProvider } from "../../context/CartContext";
 import { ShoppingCart, Search } from "lucide-react";
 import Button from "../../ui/Button";
+import { useSignUpContextProvider } from "../../context/SignUpContext";
 
 function Nav() {
   const { cartQty } = useCartContextProvider();
+  const { data, isSignUp, handleSignOut } = useSignUpContextProvider();
   return (
     <header className="fixed top-0 w-full h-18 shadow shadow-slate-300 bg-white flex items-center z-50">
       <Container>
@@ -18,7 +20,10 @@ function Nav() {
               <Search color="#333333" />
             </div>
             <div className="flex items-center relative cursor-pointer">
-              <NavLink to={"/cart"} className="rounded-full p-2 hover:bg-gray-100">
+              <NavLink
+                to={"/cart"}
+                className="rounded-full p-2 hover:bg-gray-100"
+              >
                 <ShoppingCart color="#333333" />
               </NavLink>
               {cartQty > 0 && (
@@ -28,10 +33,29 @@ function Nav() {
               )}
             </div>
             <div className="flex gap-2 h-7">
-              <Button className="secondry-btn text-[14px] rounded-3xl px-2 hover:text-[#7c4b01]">Sign In</Button>
-              <Button className="primary-btn text-[14px] px-3 rounded-3xl">
-                Sign Up
-              </Button>
+              {isSignUp ? (
+                <>
+                  <Button className="capitalize">{data?.username}</Button>
+                  <Button
+                    onClick={handleSignOut}
+                    className=" secondry-btn text-[14px] rounded-3xl px-2 hover:text-[#7c4b01]"
+                  >
+                    Sign out
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button className="secondry-btn text-[14px] rounded-3xl px-2 hover:text-[#7c4b01]">
+                    Sign In
+                  </Button>
+                  <Link
+                    to={"/signup"}
+                    className="primary-btn py-1 text-[14px] px-3 rounded-3xl"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>
