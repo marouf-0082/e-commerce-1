@@ -1,9 +1,11 @@
-import { CreditCard, Shield , Truck , Heart} from "lucide-react";
+import { CreditCard, Shield, Truck, Heart } from "lucide-react";
 import { useCartContextProvider } from "../../context/CartContext";
 import Button from "../../ui/Button";
 
 function OrderSummary() {
-  const { cartQty, subTotal, tax, total } = useCartContextProvider();
+  const { cartQty, subTotal, tax, total, shippingCost } =
+    useCartContextProvider();
+console.log(shippingCost);
 
   return (
     <>
@@ -13,12 +15,16 @@ function OrderSummary() {
       <div>
         <div className="pb-4">
           <div className="flex items-center justify-between pb-2 text-[14px]">
-            <span className="text-[#697280]">Subtotal ({cartQty} {cartQty == 1 ? 'item' : 'items'})</span>
+            <span className="text-[#697280]">
+              Subtotal ({cartQty} {cartQty == 1 ? "item" : "items"})
+            </span>
             <span>${subTotal.toFixed(2)}</span>
           </div>
           <div className="flex items-center justify-between pb-2 text-[14px]">
             <span className="text-[#697280]">Shipping</span>
-            <span className="px-2 bg-[#F3F4F6] rounded-3xl">Free</span>
+            <span className={`${shippingCost === 0 ? "bg-[#F3F4F6] rounded-3xl px-2" : ""}`}>
+              {shippingCost === 0 ? "Free" : `$${shippingCost.toFixed(2)}`}
+            </span>
           </div>
           <div className="flex items-center justify-between border-b border-gray-300 pb-2 text-[14px]">
             <span className="text-[#697280]">Tax</span>
@@ -26,7 +32,9 @@ function OrderSummary() {
           </div>
           <div className="flex items-center justify-between pt-2">
             <h2 className="text-[#262626] text-[18px]">Total</h2>
-            <span className="text-[#FC9D0F] font-bold">${total.toFixed(2)}</span>
+            <span className="text-[#FC9D0F] font-bold">
+              ${total.toFixed(2)}
+            </span>
           </div>
         </div>
         <div className="border-b border-gray-300 pb-4">

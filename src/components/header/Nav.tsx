@@ -22,7 +22,7 @@ function Nav() {
             <div className="flex items-center relative cursor-pointer">
               <NavLink
                 to={"/cart"}
-                className="rounded-full p-2 hover:bg-gray-100"
+                className="rounded-full p-2 hover:bg-gray-100 transition-all duration-300"
               >
                 <ShoppingCart color="#333333" />
               </NavLink>
@@ -36,12 +36,12 @@ function Nav() {
               {isSignUp ? (
                 <>
                   <Button className="capitalize">{data?.username}</Button>
-                  <Button
+                  {/* <Button
                     onClick={handleSignOut}
                     className=" secondry-btn text-[14px] rounded-3xl px-2 hover:text-[#7c4b01]"
                   >
                     Sign out
-                  </Button>
+                  </Button> */}
                 </>
               ) : (
                 <>

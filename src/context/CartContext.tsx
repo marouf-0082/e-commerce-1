@@ -11,6 +11,7 @@ interface ICartContext {
   subTotal: number;
   tax: number;
   total: number;
+  shippingCost: number;
 }
 
 interface ICartProvider {
@@ -83,15 +84,22 @@ export default function CartProvider({ children }: ICartProvider) {
       return currentItem.filter((item) => item.id !== id);
     });
   };
-  const { cartQty, subTotal, tax, total } = useMemo(() => {
+  const { cartQty, subTotal, tax, total, shippingCost } = useMemo(() => {
     const qty = cartItems.reduce((sum, item) => sum + item.qty, 0);
     const subtotal = cartItems.reduce(
       (sum, item) => sum + item.price * item.qty,
       0
     );
+    const shippingCost = subtotal > 50 ? 0 : 5;
     const calculatedTax = subtotal * 0.08;
-    const tot = subtotal + calculatedTax;
-    return { cartQty: qty, subTotal: subtotal, tax: calculatedTax, total: tot };
+    const tot = subtotal + calculatedTax + shippingCost;
+    return {
+      cartQty: qty,
+      subTotal: subtotal,
+      tax: calculatedTax,
+      total: tot,
+      shippingCost: shippingCost,
+    };
   }, [cartItems]);
   return (
     <CartContext.Provider
@@ -105,6 +113,7 @@ export default function CartProvider({ children }: ICartProvider) {
         subTotal,
         tax,
         total,
+        shippingCost,
       }}
     >
       {children}

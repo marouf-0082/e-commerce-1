@@ -45,6 +45,10 @@ input[type="number"] {
   }
 }
 
+@layer base {
+  
+}
+
 label {
   font-weight: bold;
   display: flex;
