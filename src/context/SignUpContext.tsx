@@ -36,15 +36,18 @@ export const useSignUpContextProvider = (): ISignUpContext => {
 
 export default function SignUpProvider({ children }: ISignUpProvider) {
   const [data, setData] = useLocalStorage<IFormData | null>("userData", null);
+  const initialToken =
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
-  const [isSignUp, setIsSignUp] = useState<boolean>(false);
+  const [isSignUp, setIsSignUp] = useState<boolean>(Boolean(initialToken));
   const navigate = useNavigate();
 
   const handleSignUp = (data: IFormData) => {
     localStorage.setItem("userData", JSON.stringify(data));
     setData(data);
-    let token = "lsdieifsldjsj45lk23khg45l3j4KkKLIJ";
+    const token = "lsdieifsldjsj45lk23khg45l3j4KkKLIJ";
     localStorage.setItem("token", token);
+    setIsSignUp(true);
     navigate("/");
   };
 
@@ -56,11 +59,9 @@ export default function SignUpProvider({ children }: ISignUpProvider) {
   };
 
   useEffect(() => {
-    let token = localStorage.getItem("token");
-    if (token) {
-      setIsSignUp(true);
-    }
-  }, [handleSignUp]);
+    const token = localStorage.getItem("token");
+    setIsSignUp(Boolean(token));
+  }, []);
   return (
     <SignUpContext.Provider
       value={{
