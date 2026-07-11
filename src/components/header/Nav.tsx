@@ -15,10 +15,16 @@ function Nav() {
           <Link to={"/"} className="text-2xl group-hover:text-[#363636]">
             BLOOM<span className="text-[#f69e0a]">SHOP</span>
           </Link>
+          <div className="relative w-full max-w-md">
+            <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+
+            <input
+              type="text"
+              placeholder="Search products..."
+              className="w-full rounded-full border border-gray-300 bg-white py-2.5 pl-11 pr-4 text-sm placeholder:text-gray-400 outline-none focus:border-gray-400 focus:ring-0"
+            />
+          </div>
           <div className="flex gap-4 items-center">
-            <div className="flex items-center">
-              <Search color="#333333" />
-            </div>
             <div className="flex items-center relative cursor-pointer">
               <NavLink
                 to={"/cart"}
