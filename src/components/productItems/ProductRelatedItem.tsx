@@ -9,7 +9,7 @@ function ProductRelatedItem({
   image: string;
   name: string;
   price: number;
-  id: number;
+  id: string;
 }) {
   return (
     <Link to={`/product/${id}`}>

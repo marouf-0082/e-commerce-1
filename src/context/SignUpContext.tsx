@@ -49,6 +49,7 @@ export default function SignUpProvider({ children }: ISignUpProvider) {
     localStorage.setItem("token", token);
     setIsSignUp(true);
     navigate("/");
+    alert(`Successfuly SignUp, ${data.fullname} !`);
   };
 
   const handleSignOut = () => {

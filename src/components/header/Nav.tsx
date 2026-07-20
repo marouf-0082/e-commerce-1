@@ -26,7 +26,12 @@ function Nav() {
           </div>
           <div className="flex gap-4 items-center">
             <div className="flex items-center relative cursor-pointer">
-              <BookHeart color="#333333" />
+              <NavLink
+                to={"/fav"}
+                className="rounded-full p-2 hover:bg-gray-100 transition-all duration-300"
+              >
+                <BookHeart color="#333333" />
+              </NavLink>
               <NavLink
                 to={"/cart"}
                 className="rounded-full p-2 hover:bg-gray-100 transition-all duration-300"
@@ -42,7 +47,9 @@ function Nav() {
             <div className="flex gap-2 h-7">
               {isSignUp ? (
                 <>
-                  <Button className="capitalize cursor-pointer ">{data?.username}</Button>
+                  <Button className="capitalize cursor-pointer ">
+                    {data?.username}
+                  </Button>
                   {/* <Button
                     onClick={handleSignOut}
                     className=" secondry-btn text-[14px] rounded-3xl px-2 hover:text-[#7c4b01]"

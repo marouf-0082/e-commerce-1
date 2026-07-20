@@ -9,6 +9,8 @@ import Cart from "./pages/Cart";
 import SignUp from "./pages/SignUp";
 import SignUpProvider from "./context/SignUpContext";
 import PrivateRout from "./components/privateRout/PrivateRout";
+import FavProduct from "./pages/FavProduct";
+import FavProductsProvider from "./context/FavProductsContext";
 
 const queryClient = new QueryClient();
 
@@ -18,18 +20,21 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <CartProvider>
           <SignUpProvider>
-            <ScrollToTop />
-            <Layout>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/product/:id" element={<Product />} />
-                <Route path="/signup" element={<SignUp />} />
+            <FavProductsProvider>
+              <ScrollToTop />
+              <Layout>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/product/:id" element={<Product />} />
+                  <Route path="/signup" element={<SignUp />} />
 
-                <Route element={<PrivateRout />}>
-                  <Route path="/cart" element={<Cart />} />
-                </Route>
-              </Routes>
-            </Layout>
+                  <Route element={<PrivateRout />}>
+                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/fav" element={<FavProduct />} />
+                  </Route>
+                </Routes>
+              </Layout>
+            </FavProductsProvider>
           </SignUpProvider>
         </CartProvider>
       </QueryClientProvider>

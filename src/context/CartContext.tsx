@@ -2,12 +2,12 @@ import { createContext, useContext, useMemo } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface ICartContext {
-  handleAddToCart: (id: number, qty: number, price: number) => void;
+  handleAddToCart: (id: string, qty: number, price: number) => void;
   cartItems: ICartItem[];
   cartQty: number;
   handleClearAll: () => void;
-  handleRemoveItem: (id: number) => void;
-  handleUpdateProduct: (id: number, type: TUpdateType) => void;
+  handleRemoveItem: (id: string) => void;
+  handleUpdateProduct: (id: string, type: TUpdateType) => void;
   subTotal: number;
   tax: number;
   total: number;
@@ -19,7 +19,7 @@ interface ICartProvider {
 }
 
 interface ICartItem {
-  id: number;
+  id: string;
   qty: number;
   price: number;
 }
@@ -43,7 +43,7 @@ export default function CartProvider({ children }: ICartProvider) {
     "cartItems",
     []
   );
-  const handleAddToCart = (id: number, qty: number, price: number) => {
+  const handleAddToCart = (id: string, qty: number, price: number) => {
     setCartItems((currentItems) => {
       const existingItem = currentItems.find((item) => item.id === id);
       if (existingItem == null) {
@@ -59,7 +59,7 @@ export default function CartProvider({ children }: ICartProvider) {
     });
   };
 
-  const handleUpdateProduct = (id: number, type: TUpdateType) => {
+  const handleUpdateProduct = (id: string, type: TUpdateType) => {
     setCartItems((currentItems) =>
       currentItems.map((item) => {
         if (item.id !== id) return item;
@@ -79,7 +79,7 @@ export default function CartProvider({ children }: ICartProvider) {
     setCartItems([]);
   };
 
-  const handleRemoveItem = (id: number) => {
+  const handleRemoveItem = (id: string) => {
     setCartItems((currentItem) => {
       return currentItem.filter((item) => item.id !== id);
     });
