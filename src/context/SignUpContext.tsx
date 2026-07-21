@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useNavigate } from "react-router-dom";
+import toast from 'react-hot-toast';
 
 interface IFormData {
   fullname: string;
@@ -49,7 +50,7 @@ export default function SignUpProvider({ children }: ISignUpProvider) {
     localStorage.setItem("token", token);
     setIsSignUp(true);
     navigate("/");
-    alert(`Successfuly SignUp, ${data.fullname} !`);
+    toast.success(`Successfuly SignUp, ${data.fullname}`)
   };
 
   const handleSignOut = () => {
