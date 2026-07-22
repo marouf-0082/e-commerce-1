@@ -1,11 +1,12 @@
 import { Container } from "../container/Container";
 import { Link, NavLink } from "react-router-dom";
 import { useCartContextProvider } from "../../context/CartContext";
-import { ShoppingCart, Search, BookHeart , LogOut} from "lucide-react";
+import { ShoppingCart, Search, BookHeart, LogOut } from "lucide-react";
 import Button from "../../ui/Button";
 import { useSignUpContextProvider } from "../../context/SignUpContext";
 import { useEffect, useState } from "react";
-import CircleUser from "../../assets/circle-user.svg"
+import CircleUser from "../../assets/circle-user.svg";
+import SearchBox from "../searchBox/SearchBox";
 
 function Nav() {
   const { cartQty } = useCartContextProvider();
@@ -14,7 +15,7 @@ function Nav() {
 
   useEffect(() => {
     setIsOpen(false);
-  }, [handleSignOut])
+  }, [handleSignOut]);
   return (
     <header className="fixed top-0 w-full h-18 shadow shadow-slate-300 bg-white flex items-center z-50">
       <Container>
@@ -22,15 +23,7 @@ function Nav() {
           <Link to={"/"} className="text-2xl group-hover:text-[#363636]">
             BLOOM<span className="text-[#f69e0a]">SHOP</span>
           </Link>
-          <div className="relative w-full max-w-md">
-            <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
-
-            <input
-              type="text"
-              placeholder="Search products..."
-              className="w-full rounded-full border border-gray-300 bg-white py-2.5 pl-11 pr-4 text-sm placeholder:text-gray-400 outline-none focus:border-gray-400 focus:ring-0"
-            />
-          </div>
+          <SearchBox />
           <div className="flex gap-4 items-center">
             <div className="flex items-center relative cursor-pointer">
               <NavLink
@@ -55,13 +48,13 @@ function Nav() {
               {isSignUp ? (
                 <>
                   <Button
-                    className="capitalize cursor-pointer "
+                    className="capitalize cursor-pointer"
                     onClick={() => setIsOpen(!isOpen)}
                   >
                     {data?.username}
                   </Button>
                   <div
-                    className={`fixed top-20 right-20 w-52 h-64 flex flex-col justify-between items-center p-3 border-2 border-gray-200 rounded-3xl backdrop-blur-2xl bg-gray-200 ${isOpen ? "opacity-100 -translate-x-5" : "opacity-0"} transition-all duration-300 transition-discrete ease-in-out`}
+                    className={`absolute top-20 right-20 w-52 h-64 flex flex-col justify-between items-center p-3 border-2 border-gray-200 rounded-3xl backdrop-blur-2xl bg-gray-200 ${isOpen ? "opacity-100 -translate-x-5" : "opacity-0"} transition-all duration-300 transition-discrete ease-in-out`}
                   >
                     <div className="flex flex-col items-center gap-3 justify-center">
                       <div className="w-16 h-16 rounded-full">
@@ -71,10 +64,15 @@ function Nav() {
                           className="h-full w-full"
                         />
                       </div>
-                      <h3 className="capitalize font-medium">hi {data?.fullname}.</h3>
+                      <h3 className="capitalize font-medium">
+                        hi {data?.fullname}.
+                      </h3>
                     </div>
                     <div className="self-end">
-                      <Button className="flex gap-2 justify-center cursor-pointer" onClick={handleSignOut}>
+                      <Button
+                        className="flex gap-2 justify-center cursor-pointer"
+                        onClick={handleSignOut}
+                      >
                         <h3>SignOut</h3>
                         <LogOut size={20} color="#f69e0a" />
                       </Button>

@@ -49,7 +49,7 @@ function Product() {
             </Link>
           </nav>
           {isLoading ? (
-            <Loader size="xl"/>
+            <Loader size="xl" />
           ) : (
             <div className="grid grid-cols-2 gap-12 px-20">
               <div className="w-full max-w-[500px] px-4 mx-auto">
@@ -164,7 +164,7 @@ function Product() {
                       </button>
                       <span className="text-center">
                         <input
-                        readOnly
+                          readOnly
                           type="number"
                           value={selectedQty}
                           onChange={(e) =>
@@ -195,7 +195,17 @@ function Product() {
                       <ShoppingCart size={16} color="#000000" />
                       Add to Cart
                     </Button>
-                    <Link to={'/cart'} className="btn secondry-btn shadow-md border border-gray-50 cursor-default" onClick={() => handleAddToCart(product.id, selectedQty || 1, product.price)}>
+                    <Link
+                      to={"/cart"}
+                      className="btn secondry-btn shadow-md border border-gray-50 cursor-default"
+                      onClick={() =>
+                        handleAddToCart(
+                          product.id,
+                          selectedQty || 1,
+                          product.price
+                        )
+                      }
+                    >
                       Buy Now
                     </Link>
                   </div>
@@ -214,7 +224,7 @@ function Product() {
             </div>
             <div>
               {isProductsLoading ? (
-                  <Loader size="lg"/>
+                <Loader size="lg" />
               ) : (
                 <div className="grid grid-cols-4 gap-5 mt-8">
                   {products
