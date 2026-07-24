@@ -12,7 +12,7 @@ function FavProduct() {
           {favItems.length > 0 ? (
             <div>
               <h1 className="text-center text-3xl">Favorites</h1>
-              <div className="grid gap-6 sm:grid-cols-5 py-20">
+              <div className="grid gap-6 sm:grid-cols-4 py-20">
                 {favItems.map((item) => (
                   <ProductItem {...item} key={item.id} />
                 ))}

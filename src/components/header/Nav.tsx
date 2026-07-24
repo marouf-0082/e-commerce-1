@@ -1,50 +1,36 @@
 import { Container } from "../container/Container";
 import { Link, NavLink } from "react-router-dom";
 import { useCartContextProvider } from "../../context/CartContext";
-import { ShoppingCart, BookHeart, LogOut, Sun, Moon } from "lucide-react";
+import { ShoppingCart, BookHeart, LogOut } from "lucide-react";
 import Button from "../../ui/Button";
 import { useSignUpContextProvider } from "../../context/SignUpContext";
 import { useEffect, useState } from "react";
 import CircleUser from "../../assets/circle-user.svg";
 import SearchBox from "../searchBox/SearchBox";
-import { useTheme } from "../../context/ThemeContext";
+import DarkMode from "../../ui/DarkMode";
 
 function Nav() {
   const { cartQty } = useCartContextProvider();
   const { data, isSignUp, handleSignOut } = useSignUpContextProvider();
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     setIsOpen(false);
   }, [handleSignOut]);
   return (
-    <header className="fixed top-0 w-full h-18 shadow shadow-slate-300 flex items-center z-50 bg-white">
+    <header className="fixed top-0 w-full h-18 shadow shadow-slate-300 flex items-center z-50 bg-white dark:bg-gray-800 transition-all duration-300 ease-in-out">
       <Container>
         <div className="flex justify-between items-center">
-          <Link to={"/"} className="text-2xl hover:text-[#363636] transition-all duration-300">
+          <Link
+            to={"/"}
+            className="text-2xl hover:text-[#363636] transition-all duration-300 dark:text-white"
+          >
             BLOOM<span className="text-[#f69e0a]">SHOP</span>
           </Link>
           <SearchBox />
           <div className="flex gap-4 items-center">
-            <div className="flex items-center relative cursor-pointer">
-              <Button
-                onClick={toggleTheme}
-                className={`relative w-18 h-8 rounded-full ${theme === "light" ? "bg-gray-300" : "bg-white"} transition-colors duration-500 overflow-hidden`}
-              >
-                <span className={`absolute left-2  top-1/2 -translate-y-1/2 ${theme === "dark" && 'translate-x-8'} transition-all duration-500 `}>
-                  <Sun
-                    color="#f69e0a"
-                    size={22}
-                    className={`absolute transition-all duration-500 ${theme === "light" ? "opacity-0" : "opacity-100"}`}
-                  />
-                  <Moon
-                    color="#333333"
-                    size={22}
-                    className={`transition-all duration-500 ${theme === "light" ? "opacity-100" : "opacity-0"}`}
-                  />
-                </span>
-              </Button>
+            <div className="flex gap-2 items-center relative cursor-pointer">
+              <DarkMode/>
               <NavLink
                 to={"/fav"}
                 className="rounded-full p-2 hover:bg-gray-100 transition-all duration-300"
