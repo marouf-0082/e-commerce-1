@@ -23,13 +23,22 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }: IThemeProvider) => {
-  const [theme, setTheme] = useLocalStorage<TTheme>("theme", "light");
+  const defaultTheme: TTheme = window.matchMedia("(prefers-color-scheme: dark)")
+    .matches
+    ? "dark"
+    : "light";
+  const [theme, setTheme] = useLocalStorage<TTheme>("theme", defaultTheme);
+  const docToggle = document.documentElement.classList.toggle(
+    "dark",
+    theme === "dark",
+  );
+
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
+    docToggle;
   }, [theme]);
   return (
     <ThemeContext.Provider

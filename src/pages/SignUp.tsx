@@ -37,7 +37,7 @@ function SignUp() {
   return (
     <Container>
       <div className="p-60 flex flex-col items-center justify-center">
-        <div className="flex flex-col items-center bg-white p-8 rounded-lg shadow-xl">
+        <div className="flex flex-col items-center p-8 rounded-lg shadow-[0_0_8px_rgba(0,0,0,0.5)] dark:shadow-[0_0_8px_rgba(245,245,245,0.5)]">
           <h1 className="text-5xl font-bold mb-8">Login</h1>
           <form
             className="flex flex-col"
@@ -59,7 +59,7 @@ function SignUp() {
                 <Label name="fullname" label="Fullname" />
               </div>
 
-              <p className="error">{errors.fullname?.message}</p>
+              <p className="error text-red-600 dark:text-red-400">{errors.fullname?.message}</p>
             </div>
 
             <div className="form-control">
@@ -77,7 +77,7 @@ function SignUp() {
                 <Label name="username" label="Username" />
               </div>
 
-              <p className="error">{errors.username?.message}</p>
+              <p className="error text-red-600 dark:text-red-400">{errors.username?.message}</p>
             </div>
 
             <div className="form-control">
@@ -110,7 +110,7 @@ function SignUp() {
                 />
                 <Label name="email" label="E-mail" />
               </div>
-              <p className="error">{errors.email?.message}</p>
+              <p className="error text-red-600 dark:text-red-400">{errors.email?.message}</p>
             </div>
 
             <div className="form-control">
@@ -151,7 +151,7 @@ function SignUp() {
                 )}
                 <Label name="password" label="Password" />
               </div>
-              <p className="error">{errors.password?.message}</p>
+              <p className="error text-red-600 dark:text-red-400">{errors.password?.message}</p>
             </div>
 
             <div className="form-control">
@@ -195,7 +195,7 @@ function SignUp() {
                 )}
                 <Label name="confirmpassword" label="Confirmpassword" />
               </div>
-              <p className="error">{errors.confirmpassword?.message}</p>
+              <p className="error text-red-600 dark:text-red-400">{errors.confirmpassword?.message}</p>
             </div>
 
             <div className="form-control">
@@ -211,7 +211,7 @@ function SignUp() {
                 <Label name="phone" label="Phone" />
               </div>
 
-              <p className="error">{errors.phone?.message}</p>
+              <p className="error text-red-600 dark:text-red-400">{errors.phone?.message}</p>
             </div>
 
             <button className="btn primary-btn">Submit</button>

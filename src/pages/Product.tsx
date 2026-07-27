@@ -155,7 +155,7 @@ function Product() {
                     <label htmlFor="quantity">Quantity</label>
                     <div className="grid grid-cols-3 border border-gray-300 w-35 h-11 items-center justify-around mt-2 rounded-3xl ">
                       <button
-                        className={`w-full h-full rounded-l-3xl flex items-center justify-center text-2xl cursor-pointer text-center hover:bg-yellow-50 ${selectedQty === 1 && " cursor-not-allowed hover:bg-transparent opacity-20 cursor "}`}
+                        className={`w-full h-full rounded-l-3xl flex items-center justify-center text-2xl cursor-pointer text-center hover:bg-svgIconBackground ${selectedQty === 1 && " cursor-not-allowed hover:bg-transparent opacity-20 cursor "}`}
                         onClick={() =>
                           setSelectedQty(Math.max(1, selectedQty - 1))
                         }
@@ -174,7 +174,7 @@ function Product() {
                         />
                       </span>
                       <button
-                        className="w-full h-full rounded-r-3xl flex items-center justify-center text-2xl  cursor-pointer text-center hover:bg-yellow-50"
+                        className="w-full h-full rounded-r-3xl flex items-center justify-center text-2xl  cursor-pointer text-center hover:bg-svgIconBackground"
                         onClick={() => setSelectedQty(selectedQty + 1)}
                       >
                         <Plus size={16} />
@@ -192,12 +192,12 @@ function Product() {
                       }
                       className="btn primary-btn flex justify-center items-center gap-2"
                     >
-                      <ShoppingCart size={16} color="#000000" />
+                      <ShoppingCart size={16} className="text-svgIcon" />
                       Add to Cart
                     </Button>
                     <Link
                       to={"/cart"}
-                      className="btn secondry-btn shadow-md border border-gray-50 cursor-default"
+                      className="btn secondry-btn shadow-md border border-gray-50 text-black cursor-default"
                       onClick={() =>
                         handleAddToCart(
                           product.id,

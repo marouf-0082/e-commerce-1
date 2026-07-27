@@ -18,7 +18,7 @@ function ProductRelatedItem({
           <img className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300" src={image} alt={name} />
         </div>
         <div className="p-4">
-          <h3 className="pb-2 font-bold text-slate-800">{name}</h3>
+          <h3 className="pb-2 font-bold">{name}</h3>
           <p className="text-[19px] font-bold !text-[#f69e0a]">
             ${price.toFixed(2)}
           </p>

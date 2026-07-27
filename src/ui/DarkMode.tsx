@@ -8,10 +8,10 @@ function DarkMode() {
   return (
     <Button
       onClick={toggleTheme}
-      className={`relative w-18 h-8 rounded-full ${
+      className={`relative w-18 h-8 rounded-full outline-none ${
         theme === "light"
-          ? "bg-gray-300 shadow-inner shadow-gray-500 "
-          : "bg-yellow-50 shadow-inner shadow-gray-600"
+          ? "bg-gray-200 shadow-[inset_-3px_1px_10px_rgba(3,3,3,0.4)] "
+          : "bg-yellow-50 shadow-[inset_6px_2px_10px_rgba(3,3,3,0.6)]"
       } transition-colors duration-500 overflow-hidden`}
     >
       <span

@@ -5,18 +5,43 @@
 :root {
   --background: #ffffff;
   --foreground: #111827;
-  --primary: #2563eb;
+
+  --border: #e5e7eb;
+
+  --shadow: rgba(0, 0, 0, 0.12);
+
+  --svgIcon: #333333;
+  --svgIconBackground: #dadada;
 }
 
 .dark {
   --background: #111827;
   --foreground: #f9fafb;
-  --primary: #60a5fa;
+
+  --border: #374151;
+
+  --shadow: rgba(0, 0, 0, 0.45);
+
+  --svgIcon: #e5e7eb;
+  --svgIconBackground: #1f2737;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground); 
+  --color-border: var(--border);
+  --color-shadow: var(--shadow);
+  --color-svgIcon: var(--svgIcon);
+  --color-svgIconBackground: var(--svgIconBackground)
+}
+
+body {
+  @apply bg-background text-foreground shadow-shadow border-border transition-colors duration-300 ease-in-out;
 }
 
 * {
   font-family: sans-serif, Serif, serif, monospace;
-  transition: all 0.3s ease-in-out;
+  /* transition: all 0.3s ease-in-out; */
 }
 
 html {
@@ -29,7 +54,7 @@ p {
 
 @layer components {
   .fsvg {
-    @apply w-10 h-10 bg-slate-100 flex justify-center items-center cursor-pointer rounded-full hover:bg-[#f69e0a] transition-colors duration-300;
+    @apply w-10 h-10 bg-svgIconBackground flex justify-center items-center cursor-pointer rounded-full hover:bg-[#f69e0a] transition-colors duration-300;
   }
 }
 
@@ -65,16 +90,17 @@ label {
   font-weight: bold;
   display: flex;
   margin-bottom: 5px;
+  background-color: var(--background);
 }
 
 .formInput {
   display: block;
   width: 400px;
+  color: var(--foreground);
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
+  background-color: var(--background);
   background-image: none;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -85,7 +111,7 @@ label {
 }
 
 .error {
-  color: red;
+  /* color: red; */
   font-size: 12px;
   text-align: left;
 }

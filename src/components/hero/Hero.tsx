@@ -8,7 +8,7 @@ function Hero() {
         <h1 className="text-5xl text-[#f69e0a] font-semibold tracking-tight">
           Step Into Style
         </h1>
-        <p className="text-[19px] text-slate-900">
+        <p className="text-[19px]">
           Discover our latest collection of premium sneakers <br /> — comfort,
           design, and performance in every pair.
         </p>

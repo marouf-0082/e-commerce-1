@@ -6,7 +6,7 @@ import { useCartContextProvider } from "../../context/CartContext";
 import Button from "../../ui/Button";
 
 interface ICartItem {
-  id: number;
+  id: string;
   qty: number;
 }
 
@@ -33,7 +33,7 @@ function CartItem({ id, qty }: ICartItem) {
       <div className="w-full flex justify-between flex-col">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-[#262626] font-semibold">{product?.name}</h3>
+            <h3 className="font-semibold">{product?.name}</h3>
             <p>${product?.price} each</p>
           </div>
           <Button
@@ -49,7 +49,7 @@ function CartItem({ id, qty }: ICartItem) {
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-between border border-gray-200 rounded-3xl h-9 ">
             <Button
-              className={`h-full w-8 flex items-center justify-center text-2xl rounded-l-3xl cursor-pointer text-center hover:bg-yellow-50 ${qty === 1 && " cursor-not-allowed hover:bg-transparent opacity-20 cursor "}`}
+              className={`h-full w-8 flex items-center justify-center text-2xl rounded-l-3xl cursor-pointer text-center hover:bg-svgIconBackground ${qty === 1 && " cursor-not-allowed hover:bg-transparent opacity-20 cursor "}`}
               onClick={() => handleUpdateProduct(id, "decrement")}
             >
               <Minus size={16} />
@@ -63,7 +63,7 @@ function CartItem({ id, qty }: ICartItem) {
               />
             </span>
             <Button
-              className="h-full w-8 flex items-center justify-center text-2xl rounded-r-3xl  cursor-pointer text-center hover:bg-yellow-50"
+              className="h-full w-8 flex items-center justify-center text-2xl rounded-r-3xl  cursor-pointer text-center hover:bg-svgIconBackground"
               onClick={() => handleUpdateProduct(id, "increment")}
             >
               <Plus size={16} />

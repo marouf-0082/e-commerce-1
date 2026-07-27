@@ -59,10 +59,10 @@ function SearchBox() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search products..."
-        className="w-full rounded-full border border-gray-300 bg-white py-2.5 pl-11 pr-4 text-sm placeholder:text-gray-400 outline-none focus:border-gray-400 focus:ring-0"
+        className="w-full rounded-full border bg-background py-2.5 pl-11 pr-4 text-foreground text-sm outline-none"
       />
       <div
-        className={`${query ? "block" : "hidden"} absolute top-17 p-2 w-full overflow-y-auto flex flex-col gap-3 items-center justify-between border-2 border-gray-200 rounded-3xl backdrop-blur-2xl bg-gray-200 `}
+        className={`${query ? "block" : "hidden"} absolute top-17 p-2 w-full overflow-y-auto flex flex-col gap-3 items-center justify-between border rounded-3xl backdrop-blur-2xl bg-gray-200 dark:bg-[#101f3e]`}
       >
         {loading ? (
           <Loader size="md" />

@@ -9,7 +9,7 @@ console.log(shippingCost);
 
   return (
     <>
-      <div className="pb-4 text-[#262626] font-bold text-[18px]">
+      <div className="pb-4 font-bold text-[18px]">
         <h2>Order Summary</h2>
       </div>
       <div>
@@ -22,7 +22,7 @@ console.log(shippingCost);
           </div>
           <div className="flex items-center justify-between pb-2 text-[14px]">
             <span className="text-[#697280]">Shipping</span>
-            <span className={`${shippingCost === 0 ? "bg-[#F3F4F6] rounded-3xl px-2" : ""}`}>
+            <span className={`${shippingCost === 0 ? "bg-svgIconBackground rounded-3xl px-2" : ""}`}>
               {shippingCost === 0 ? "Free" : `$${shippingCost.toFixed(2)}`}
             </span>
           </div>
@@ -31,7 +31,7 @@ console.log(shippingCost);
             <span>${tax.toFixed(2)}</span>
           </div>
           <div className="flex items-center justify-between pt-2">
-            <h2 className="text-[#262626] text-[18px]">Total</h2>
+            <h2 className="text-[18px]">Total</h2>
             <span className="text-[#FC9D0F] font-bold">
               ${total.toFixed(2)}
             </span>

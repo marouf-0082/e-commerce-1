@@ -14,7 +14,7 @@ function ProductItem(product: IProductItem) {
   const productIsFavorite = isFavorite(product.id);
 
   return (
-    <div className="shadow-md border border-slate-200 rounded-3xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+    <div className="shadow-md border-border rounded-3xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
       <Link to={`/product/${product.id}`}>
         <div className="group/cart relative w-full h-102 overflow-hidden rounded-t-3xl">
           <img
@@ -89,7 +89,7 @@ function ProductItem(product: IProductItem) {
           className={`btn primary-btn block w-full mt-3`}
         >
           <div className="flex items-center justify-center gap-2">
-            <ShoppingCart size={16} color="#000000" />
+            <ShoppingCart size={16} className="text-svgIcon" />
             <span>Add to Cart</span>
           </div>
         </Button>
