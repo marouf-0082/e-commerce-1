@@ -59,7 +59,7 @@ function Nav() {
                     {data?.username}
                   </Button>
                   <div
-                    className={`absolute top-20 right-20 w-52 h-64 flex flex-col justify-between items-center p-3 border-2 border-gray-200 rounded-3xl backdrop-blur-2xl bg-gray-300 dark:bg-[#101f3e] ${
+                    className={`absolute top-20 right-20 w-52 h-64 flex flex-col justify-between items-center p-3 border-2 border-gray-200 rounded-3xl backdrop-blur-2xl ${
                       isOpen ? "opacity-100 -translate-x-5" : "opacity-0"
                     } transition-all duration-300 transition-discrete ease-in-out`}
                   >

@@ -114,7 +114,7 @@ function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="font-bold text-slate-700 text-[16px] uppercase">Shop</h4>
+            <h4 className="font-bold text-[16px] uppercase">Shop</h4>
             <ul
               className="pt-2 [&>*]:pt-4 text-[#696969] text-[14px] cursor-pointer"
             >
@@ -125,7 +125,7 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-bold text-slate-700 text-[16px] uppercase">customer care</h4>
+            <h4 className="font-bold text-[16px] uppercase">customer care</h4>
             <ul
               className="pt-2 [&>*]:pt-4 text-[#696969] text-[14px] cursor-pointer"
             >
@@ -136,7 +136,7 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-bold text-slate-700 text-[16px] uppercase">company</h4>
+            <h4 className="font-bold text-[16px] uppercase">company</h4>
             <ul
               className="pt-2 [&>*]:pt-4 text-[#696969] text-[14px] cursor-pointer"
             >
@@ -147,7 +147,7 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-bold text-slate-700 text-[16px] uppercase">legal</h4>
+            <h4 className="font-bold text-[16px] uppercase">legal</h4>
             <ul
               className="pt-2 [&>*]:pt-4 text-[#696969] text-[14px] cursor-pointer"
             >

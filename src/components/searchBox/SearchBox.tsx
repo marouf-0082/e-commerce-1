@@ -62,7 +62,7 @@ function SearchBox() {
         className="w-full rounded-full border bg-background py-2.5 pl-11 pr-4 text-foreground text-sm outline-none"
       />
       <div
-        className={`${query ? "block" : "hidden"} absolute top-17 p-2 w-full overflow-y-auto flex flex-col gap-3 items-center justify-between border rounded-3xl backdrop-blur-2xl bg-gray-200 dark:bg-[#101f3e]`}
+        className={`${query ? "block" : "hidden"} absolute top-17 p-2 w-full overflow-y-auto flex flex-col gap-3 items-center justify-between border rounded-3xl backdrop-blur-2xl`}
       >
         {loading ? (
           <Loader size="md" />

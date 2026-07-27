@@ -14,7 +14,7 @@ function ProductItem(product: IProductItem) {
   const productIsFavorite = isFavorite(product.id);
 
   return (
-    <div className="shadow-md border-border rounded-3xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+    <div className="shadow-md rounded-3xl border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
       <Link to={`/product/${product.id}`}>
         <div className="group/cart relative w-full h-102 overflow-hidden rounded-t-3xl">
           <img
