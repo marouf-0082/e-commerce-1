@@ -39,6 +39,34 @@ body {
   @apply bg-background text-foreground transition-colors duration-300 ease-in-out;
 }
 
+@theme {
+  --animate-float-1: float 30s ease-in-out 0s infinite;
+  --animate-float-2: float 25s ease-in-out 5s infinite;
+  --animate-float-3: float 32s ease-in-out 10s infinite reverse;
+
+  @keyframes float {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    25% {
+      transform: translate3d(200px, -10px, 0) scale(1.25);
+    }
+
+    50% {
+      transform: translate3d(100px, 100px, 0) scale(1);
+    }
+
+    75% {
+      transform: translate3d(-20px, -20px, 0) scale(1.20);
+    }
+
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
 * {
   font-family: sans-serif, Serif, serif, monospace;
   /* transition: all 0.3s ease-in-out; */
