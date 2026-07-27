@@ -8,7 +8,7 @@ function NewsLetter() {
       <Container>
         <div className="flex flex-col justify-center items-center py-16 gap-4">
           <h3 className="font-bold text-2xl">Stay in the loop</h3>
-          <p className="text-slate-600">
+          <p className="dark:text-slate-400">
             Subscribe to our newsletter for exclusive offers, new arrivals, and
             style inspiration.
           </p>
