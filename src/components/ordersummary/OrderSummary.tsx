@@ -15,19 +15,19 @@ console.log(shippingCost);
       <div>
         <div className="pb-4">
           <div className="flex items-center justify-between pb-2 text-[14px]">
-            <span className="text-[#697280]">
+            <span className="text-foreground-2">
               Subtotal ({cartQty} {cartQty == 1 ? "item" : "items"})
             </span>
             <span>${subTotal.toFixed(2)}</span>
           </div>
           <div className="flex items-center justify-between pb-2 text-[14px]">
-            <span className="text-[#697280]">Shipping</span>
+            <span className="text-foreground-2">Shipping</span>
             <span className={`${shippingCost === 0 ? "bg-svgIconBackground rounded-3xl px-2" : ""}`}>
               {shippingCost === 0 ? "Free" : `$${shippingCost.toFixed(2)}`}
             </span>
           </div>
           <div className="flex items-center justify-between border-b border-gray-300 pb-2 text-[14px]">
-            <span className="text-[#697280]">Tax</span>
+            <span className="text-foreground-2">Tax</span>
             <span>${tax.toFixed(2)}</span>
           </div>
           <div className="flex items-center justify-between pt-2">

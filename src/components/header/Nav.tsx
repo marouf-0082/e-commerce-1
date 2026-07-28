@@ -20,7 +20,7 @@ function Nav() {
   return (
     <header className="fixed top-0 w-full h-18 shadow-md flex items-center z-50 bg-background transition-colors duration-300">
       <Container>
-        <div className="flex justify-between items-center">
+        <div className="relative flex justify-between items-center">
           <Link
             to={"/"}
             className="text-2xl hover:text-[#363636] dark:hover:text-[#bfbfbf] transition-all duration-300"
@@ -59,8 +59,8 @@ function Nav() {
                     {data?.username}
                   </Button>
                   <div
-                    className={`absolute top-20 right-20 w-52 h-64 flex flex-col justify-between items-center p-3 border-2 border-gray-200 rounded-3xl backdrop-blur-2xl ${
-                      isOpen ? "opacity-100 -translate-x-5" : "opacity-0"
+                    className={`absolute top-18 -right-25 w-52 h-64 flex flex-col justify-between items-center p-3 border-2 border-gray-200 rounded-3xl backdrop-blur-2xl ${
+                      isOpen ? "opacity-100 -translate-x-5 translate-z-5 scale-105" : "opacity-0 translate-x-25 translate-z-0 scale-100"
                     } transition-all duration-300 transition-discrete ease-in-out`}
                   >
                     <div className="flex flex-col items-center gap-3 justify-center">

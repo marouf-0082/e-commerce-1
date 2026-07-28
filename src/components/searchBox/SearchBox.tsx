@@ -59,7 +59,7 @@ function SearchBox() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search products..."
-        className="w-full rounded-full border bg-background py-2.5 pl-11 pr-4 text-foreground text-sm outline-none"
+        className="w-full rounded-full ring-1 bg-background py-2.5 pl-11 pr-4 text-foreground text-sm outline-none placeholder:text-foreground-2"
       />
       <div
         className={`${query ? "block" : "hidden"} absolute top-17 p-2 w-full overflow-y-auto flex flex-col gap-3 items-center justify-between border rounded-3xl backdrop-blur-2xl`}

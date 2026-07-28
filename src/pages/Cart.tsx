@@ -16,9 +16,7 @@ function Cart() {
           <div>
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-3xl font-bold pb-3">
-                  Shopping Cart
-                </h1>
+                <h1 className="text-3xl font-bold pb-3">Shopping Cart</h1>
                 <p>
                   {cartQty} {cartQty > 1 ? "items" : "item"} in your cart
                 </p>
@@ -26,7 +24,7 @@ function Cart() {
               <div>
                 <Link
                   to={"/"}
-                  className="group flex gap-2 text-[14px] text-[#697280] hover:bg-[#fffde8] rounded-3xl px-3 py-2 w-max items-center hover:text-[#262626] transition-all duration-300"
+                  className="flex gap-2 text-[14px] text-[#697280] hover:bg-[#fffde8] rounded-3xl px-3 py-2 w-max items-center hover:text-[#262626] transition-all duration-300"
                 >
                   <ArrowLeft
                     size={20}
@@ -39,9 +37,7 @@ function Cart() {
             <div className="grid grid-cols-3 mt-5 gap-6">
               <div className="col-span-2 p-6 self-start border border-gray-200 rounded-3xl shadow">
                 <div className="flex items-center justify-between pb-3">
-                  <h3 className="text-[18px] font-bold">
-                    Cart Items
-                  </h3>
+                  <h3 className="text-[18px] font-bold">Cart Items</h3>
                   <div>
                     <Button
                       onClick={handleClearAll}
@@ -74,7 +70,12 @@ function Cart() {
               </div>
               <div className="flex flex-col items-center justify-center gap-4 py-12">
                 <p>Discover more products that match your style</p>
-                <Link to={'/'} className="secondry-btn shadow-md px-3 py-1 text-black text-[14px] border border-gray-200 rounded-3xl">Browse Products</Link>
+                <Link
+                  to={"/"}
+                  className="secondry-btn shadow-md px-3 py-1 text-black text-[14px] border border-gray-200 rounded-3xl"
+                >
+                  Browse Products
+                </Link>
               </div>
             </div>
           </div>

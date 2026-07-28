@@ -44,7 +44,7 @@ function Product() {
                   fillRule="evenodd"
                   d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5"
                 />
-              </svg>{" "}
+              </svg>
               Return to Shop
             </Link>
           </nav>
@@ -152,7 +152,7 @@ function Product() {
                 </p>
                 <div className="border-t border-gray-300 mt-5 pt-5">
                   <div>
-                    <label htmlFor="quantity">Quantity</label>
+                    <label htmlFor="quantit">Quantity</label>
                     <div className="grid grid-cols-3 border border-gray-300 w-35 h-11 items-center justify-around mt-2 rounded-3xl ">
                       <button
                         className={`w-full h-full rounded-l-3xl flex items-center justify-center text-2xl cursor-pointer text-center hover:bg-svgIconBackground ${selectedQty === 1 && " cursor-not-allowed hover:bg-transparent opacity-20 cursor "}`}
@@ -166,6 +166,7 @@ function Product() {
                         <input
                           readOnly
                           type="number"
+                          id="quantity"
                           value={selectedQty}
                           onChange={(e) =>
                             setSelectedQty(parseInt(e.target.value) || 1)
