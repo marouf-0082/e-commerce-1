@@ -12,7 +12,7 @@ function EmptyCart() {
             <h2 className="text-2xl font-semibold">
               Your cart is empty
             </h2>
-            <p className="dark:text-slate-400">Looks like you haven't added anything to your cart yet.</p>
+            <p>Looks like you haven't added anything to your cart yet.</p>
           </div>
           <div className="flex items-center flex-col justify-center">
             <Link

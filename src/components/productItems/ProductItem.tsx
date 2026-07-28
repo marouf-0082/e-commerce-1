@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import type { IProduct } from "../services/product/types";
 import { useCartContextProvider } from "../../context/CartContext";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Check } from "lucide-react";
 import Button from "../../ui/Button";
 import { useFavContextProvider } from "../../context/FavProductsContext";
+import { useState } from "react";
 
 type IProductItem = IProduct;
 
@@ -12,6 +13,18 @@ function ProductItem(product: IProductItem) {
   const { handleAddToFav, isFavorite } = useFavContextProvider();
 
   const productIsFavorite = isFavorite(product.id);
+
+  const [isAdded, setIsAdded] = useState<boolean>(false);
+
+  const handleCart = () => {
+    !isAdded && handleAddToCart(product.id, 1, product.price);
+
+    setIsAdded(true);
+
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 2000);
+  };
 
   return (
     <div className="shadow-md rounded-3xl border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
@@ -85,12 +98,41 @@ function ProductItem(product: IProductItem) {
           </span>
         </div>
         <Button
-          onClick={() => handleAddToCart(product.id, 1, product.price)}
-          className={`btn primary-btn block w-full mt-3`}
+          onClick={handleCart}
+          className={`btn primary-btn block w-full mt-3 ${
+            isAdded && "bg-green-500 hover:cursor-not-allowed"
+          }`}
         >
-          <div className="flex items-center justify-center gap-2">
-            <ShoppingCart size={16} className="text-svgIcon" />
-            <span>Add to Cart</span>
+          <div className="relative flex items-center justify-center gap-2 overflow-hidden">
+            <div
+              className={`
+                absolute flex items-center gap-2
+                transition-all duration-300 ease-in-out
+                ${
+                  isAdded
+                    ? "opacity-0 translate-x-30"
+                    : "opacity-100 translate-x-0"
+                }
+              `}
+            >
+              <ShoppingCart size={20} className="text-svgIcon" />
+              <span>Add to Cart</span>
+            </div>
+
+            <div
+              className={`
+                flex items-center gap-2
+                transition-all duration-300 ease-in-out
+                ${
+                  isAdded
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-30"
+                }
+              `}
+            >
+              <Check size={20} color="#00ff40" strokeWidth={3} />
+              <span>Added</span>
+            </div>
           </div>
         </Button>
       </div>

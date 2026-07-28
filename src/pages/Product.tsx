@@ -152,7 +152,7 @@ function Product() {
                 </p>
                 <div className="border-t border-gray-300 mt-5 pt-5">
                   <div>
-                    <label htmlFor="quantit">Quantity</label>
+                    <h3>Quantity</h3>
                     <div className="grid grid-cols-3 border border-gray-300 w-35 h-11 items-center justify-around mt-2 rounded-3xl ">
                       <button
                         className={`w-full h-full rounded-l-3xl flex items-center justify-center text-2xl cursor-pointer text-center hover:bg-svgIconBackground ${selectedQty === 1 && " cursor-not-allowed hover:bg-transparent opacity-20 cursor "}`}

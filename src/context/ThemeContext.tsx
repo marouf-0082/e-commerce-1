@@ -28,18 +28,18 @@ export const ThemeProvider = ({ children }: IThemeProvider) => {
     ? "dark"
     : "light";
   const [theme, setTheme] = useLocalStorage<TTheme>("theme", defaultTheme);
-  const docToggle = document.documentElement.classList.toggle(
-    "dark",
-    theme === "dark",
-  );
+
+  const docToggle = () =>
+    document.documentElement.classList.toggle("dark", theme === "dark");
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
   useEffect(() => {
-    docToggle;
+    docToggle();
   }, [theme]);
+
   return (
     <ThemeContext.Provider
       value={{

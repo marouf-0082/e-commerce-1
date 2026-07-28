@@ -44,7 +44,7 @@ function Nav() {
                 <ShoppingCart className="text-svgIcon" />
               </NavLink>
               {cartQty > 0 && (
-                <span className="absolute -top-1 -right-2 w-5 h-5 flex items-center justify-center select-none rounded-full bg-[#f69e0a] text-xs font-bold">
+                <span className="absolute -top-1 -right-2 w-5 h-5 flex items-center justify-center select-none rounded-full bg-[#f69e0a] text-white text-xs font-bold">
                   {cartQty}
                 </span>
               )}

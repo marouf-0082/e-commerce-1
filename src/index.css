@@ -118,7 +118,7 @@ label {
   font-weight: bold;
   display: flex;
   margin-bottom: 5px;
-  background-color: transparent
+  background-color: var(--color-background);
 }
 
 .formInput {
@@ -128,7 +128,7 @@ label {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
-  background-color: var(--background);
+  /* background-color: var(--background); */
   background-image: none;
   border: 1px solid #ccc;
   border-radius: 4px;
