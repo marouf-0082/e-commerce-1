@@ -10,10 +10,20 @@ function Products() {
       <div>
         {isLoading ? (
           <div className="flex justify-center items-center py-20">
-            <Loader size="xl"/>
+            <Loader size="xl" />
           </div>
         ) : (
-          <div className="grid gap-6 sm:grid-cols-3 px-32 py-18">
+          <div
+            className=" grid
+              grid-cols-1
+              gap-6
+              py-10
+
+              sm:grid-cols-2
+
+              lg:grid-cols-3
+              "
+          >
             {data &&
               data.map((item) => <ProductItem {...item} key={item.id} />)}
           </div>
