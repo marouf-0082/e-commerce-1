@@ -1,10 +1,9 @@
 import { ArrowRight } from "lucide-react";
 import { Container } from "../container/Container";
-import Button from "../../ui/Button";
 
 function NewsLetter() {
   return (
-    <div className="border-t border-t-gray-300">
+    <div className="border-b">
       <Container>
         <div className="flex flex-col justify-center items-center py-16 gap-4">
           <h3 className="font-bold text-2xl">Stay in the loop</h3>

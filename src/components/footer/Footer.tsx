@@ -3,11 +3,24 @@ import NewsLetter from "../newsLetter/NewsLetter";
 
 function Footer() {
   return (
-    <footer>
-      <NewsLetter />
+    <div className="border-t">
       <Container>
-        <div className="py-10 grid grid-cols-6  border-y border-y-gray-300">
-          <div className="col-span-2 pr-40">
+        <NewsLetter />
+        <footer
+          className="grid
+          grid-cols-1
+          gap-10
+          py-10
+          
+          sm:grid-cols-2
+
+          lg:grid-cols-6
+          lg:gap-8"
+        >
+          <div
+            className="lg:col-span-2
+           lg:pr-16"
+          >
             <h3 className="text-2xl">
               BLOOM<span className="text-[#f69e0a]">SHOP</span>
             </h3>
@@ -148,9 +161,9 @@ function Footer() {
               <li>Featured</li>
             </ul>
           </div>
-        </div>
+        </footer>
       </Container>
-    </footer>
+    </div>
   );
 }
 
