@@ -52,12 +52,12 @@ function Nav() {
             <div className="flex gap-2 h-7">
               {isSignUp ? (
                 <>
-                  <Button
+                  <button
                     className="capitalize cursor-pointer"
                     onClick={() => setIsOpen(!isOpen)}
                   >
                     {data?.username}
-                  </Button>
+                  </button>
                   <div
                     className={`absolute top-18 -right-25 w-52 h-64 flex flex-col justify-between items-center p-3 border-2 border-gray-200 rounded-3xl backdrop-blur-2xl ${
                       isOpen ? "opacity-100 -translate-x-5 translate-z-5 scale-105" : "opacity-0 translate-x-25 translate-z-0 scale-100"
@@ -76,13 +76,13 @@ function Nav() {
                       </h3>
                     </div>
                     <div className="self-end">
-                      <Button
+                      <button
                         className="flex gap-2 justify-center cursor-pointer"
                         onClick={handleSignOut}
                       >
                         <h3>SignOut</h3>
                         <LogOut size={20} color="#f69e0a" />
-                      </Button>
+                      </button>
                     </div>
                   </div>
                   {/* <Button
@@ -94,9 +94,9 @@ function Nav() {
                 </>
               ) : (
                 <>
-                  <Button className="secondry-btn text-black text-[14px] rounded-3xl px-2 hover:text-[#7c4b01]">
+                  <button className="secondry-btn text-black text-[14px] rounded-3xl px-2 hover:text-[#7c4b01]">
                     Sign In
-                  </Button>
+                  </button>
                   <Link
                     to={"/signup"}
                     className="primary-btn py-1 text-[14px] px-3 rounded-3xl"

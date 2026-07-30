@@ -6,7 +6,7 @@ function DarkMode() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <Button
+    <button
       onClick={toggleTheme}
       className={`relative w-18 h-8 rounded-full outline-none ${
         theme === "light"
@@ -34,7 +34,7 @@ function DarkMode() {
           }`}
         />
       </span>
-    </Button>
+    </button>
   );
 }
 

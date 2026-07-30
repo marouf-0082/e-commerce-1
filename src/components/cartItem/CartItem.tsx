@@ -36,7 +36,7 @@ function CartItem({ id, qty }: ICartItem) {
             <h3 className="font-semibold">{product?.name}</h3>
             <p>${product?.price} each</p>
           </div>
-          <Button
+          <button
             onClick={() => handleRemoveItem(id)}
             className="group rounded-full hover:bg-yellow-50 p-2 transition-all duration-300"
           >
@@ -44,16 +44,16 @@ function CartItem({ id, qty }: ICartItem) {
               size={16}
               className="text-[#697280] group-hover:text-red-500"
             />
-          </Button>
+          </button>
         </div>
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-between border border-gray-200 rounded-3xl h-9 ">
-            <Button
+            <button
               className={`h-full w-8 flex items-center justify-center text-2xl rounded-l-3xl cursor-pointer text-center hover:bg-svgIconBackground ${qty === 1 && " cursor-not-allowed hover:bg-transparent opacity-20 cursor "}`}
               onClick={() => handleUpdateProduct(id, "decrement")}
             >
               <Minus size={16} />
-            </Button>
+            </button>
             <span className="text-center">
               <input
                 type="number"
@@ -62,12 +62,12 @@ function CartItem({ id, qty }: ICartItem) {
                 readOnly
               />
             </span>
-            <Button
+            <button
               className="h-full w-8 flex items-center justify-center text-2xl rounded-r-3xl  cursor-pointer text-center hover:bg-svgIconBackground"
               onClick={() => handleUpdateProduct(id, "increment")}
             >
               <Plus size={16} />
-            </Button>
+            </button>
           </div>
           <span className="text-[18px] font-bold">
             ${totalPriceEachProduct.toFixed(2)}

@@ -9,22 +9,10 @@ import { useState } from "react";
 type IProductItem = IProduct;
 
 function ProductItem(product: IProductItem) {
-  const { handleAddToCart } = useCartContextProvider();
   const { handleAddToFav, isFavorite } = useFavContextProvider();
 
   const productIsFavorite = isFavorite(product.id);
 
-  const [isAdded, setIsAdded] = useState<boolean>(false);
-
-  const handleCart = () => {
-    !isAdded && handleAddToCart(product.id, 1, product.price);
-
-    setIsAdded(true);
-
-    setTimeout(() => {
-      setIsAdded(false);
-    }, 2000);
-  };
 
   return (
     <div className="shadow-md rounded-3xl border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
@@ -68,7 +56,7 @@ function ProductItem(product: IProductItem) {
               )}
             </div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <Button className="btn primary-btn flex items-center gap-4 px-3 py-1.5">
+              <span className="btn primary-btn flex items-center gap-4 px-3 py-1.5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -81,7 +69,7 @@ function ProductItem(product: IProductItem) {
                   <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
                 </svg>
                 Quick View
-              </Button>
+              </span>
             </div>
           </div>
         </div>
@@ -97,44 +85,7 @@ function ProductItem(product: IProductItem) {
             ${product.price.toFixed(2)}
           </span>
         </div>
-        <Button
-          onClick={handleCart}
-          className={`btn primary-btn block w-full mt-3 ${
-            isAdded && "bg-green-500 hover:cursor-not-allowed"
-          }`}
-        >
-          <div className="relative flex items-center justify-center gap-2 overflow-hidden">
-            <div
-              className={`
-                absolute flex items-center gap-2
-                transition-all duration-300 ease-in-out
-                ${
-                  isAdded
-                    ? "opacity-0 translate-x-30"
-                    : "opacity-100 translate-x-0"
-                }
-              `}
-            >
-              <ShoppingCart size={20} className="text-svgIcon" />
-              <span>Add to Cart</span>
-            </div>
-
-            <div
-              className={`
-                flex items-center gap-2
-                transition-all duration-300 ease-in-out
-                ${
-                  isAdded
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-30"
-                }
-              `}
-            >
-              <Check size={20} color="#00ff40" strokeWidth={3} />
-              <span>Added</span>
-            </div>
-          </div>
-        </Button>
+        <Button type="primery" props={product} qty={1}/>
       </div>
     </div>
   );

@@ -6,9 +6,8 @@ import {
 } from "../components/services/product/hooks";
 import FeatureBar from "../components/featureBar/FeatureBar";
 import ProductRelatedItem from "../components/productItems/ProductRelatedItem";
-import { useCartContextProvider } from "../context/CartContext";
 import { useState, useEffect } from "react";
-import { Minus, Plus, ShoppingCart } from "lucide-react";
+import { Minus, Plus } from "lucide-react";
 import Loader from "../components/loader/Loader";
 import Button from "../ui/Button";
 
@@ -16,7 +15,6 @@ function Product() {
   const params = useParams<{ id: string }>();
   const { data: product, isLoading } = useGetProduct(params.id as string);
   const { data: products, isLoading: isProductsLoading } = useGetProducts();
-  const { handleAddToCart } = useCartContextProvider();
   const [selectedQty, setSelectedQty] = useState<number>(1);
 
   useEffect(() => {
@@ -183,32 +181,8 @@ function Product() {
                     </div>
                   </div>
                   <div className="flex justify-between mt-4 gap-4">
-                    <Button
-                      onClick={() =>
-                        handleAddToCart(
-                          product.id,
-                          selectedQty || 1,
-                          product.price
-                        )
-                      }
-                      className="btn primary-btn flex justify-center items-center gap-2"
-                    >
-                      <ShoppingCart size={16} className="text-svgIcon" />
-                      Add to Cart
-                    </Button>
-                    <Link
-                      to={"/cart"}
-                      className="btn secondry-btn shadow-md border border-gray-50 text-black cursor-default"
-                      onClick={() =>
-                        handleAddToCart(
-                          product.id,
-                          selectedQty || 1,
-                          product.price
-                        )
-                      }
-                    >
-                      Buy Now
-                    </Link>
+                    <Button props={product} type="primery" qty={selectedQty}/>
+                    <Button props={product} type="secondery" qty={selectedQty}/>
                   </div>
                   <div></div>
                 </div>

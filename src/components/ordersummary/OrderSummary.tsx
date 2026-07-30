@@ -38,10 +38,10 @@ console.log(shippingCost);
           </div>
         </div>
         <div className="border-b border-gray-300 pb-4">
-          <Button className="btn primary-btn flex gap-2 w-full justify-center items-center">
+          <button className="btn primary-btn flex gap-2 w-full justify-center items-center">
             <CreditCard size={16} />
             Proceed to Checkout
-          </Button>
+          </button>
         </div>
         <div className="pt-3 flex flex-col gap-2">
           <div className="flex gap-3 items-center">

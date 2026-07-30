@@ -14,9 +14,9 @@ function NewsLetter() {
           </p>
           <div className="flex gap-3">
             <input type="email" placeholder="Enter your email" className="ring-1 text-foreground pl-4 py-1.5 rounded-3xl w-96 text-sm shadow-shadow focus:outline-none placeholder:text-foreground-2"/>
-            <Button className="flex items-center justify-center w-12 h-9 bg-[#f69e0a] rounded-2xl cursor-pointer">
+            <button className="flex items-center justify-center w-12 h-9 bg-[#f69e0a] rounded-2xl cursor-pointer">
               <ArrowRight size={16} color="#000000" />
-            </Button>
+            </button>
           </div>
         </div>
       </Container>

@@ -39,7 +39,7 @@ function Cart() {
                 <div className="flex items-center justify-between pb-3">
                   <h3 className="text-[18px] font-bold">Cart Items</h3>
                   <div>
-                    <Button
+                    <button
                       onClick={handleClearAll}
                       className="flex items-center justify-center gap-3 px-3 py-1 rounded-3xl text-[14px] group text-[#697280] hover:bg-yellow-50 hover:text-red-500 transition-all duration-300"
                     >
@@ -48,7 +48,7 @@ function Cart() {
                         className="text-[#697280] group-hover:text-red-500 duration-300"
                       />{" "}
                       Clear All
-                    </Button>
+                    </button>
                   </div>
                 </div>
                 {cartItems.map((item, index) => (
