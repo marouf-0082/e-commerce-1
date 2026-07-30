@@ -4,6 +4,7 @@ import type { IProduct } from "../services/product/types";
 import { Minus, Trash, Plus } from "lucide-react";
 import { useCartContextProvider } from "../../context/CartContext";
 import Button from "../../ui/Button";
+import clsx from "clsx";
 
 interface ICartItem {
   id: string;
@@ -38,7 +39,7 @@ function CartItem({ id, qty }: ICartItem) {
           </div>
           <button
             onClick={() => handleRemoveItem(id)}
-            className="group rounded-full hover:bg-yellow-50 p-2 transition-all duration-300"
+            className="group rounded-full hover:bg-yellow-50 p-2 transition-color duration-300"
           >
             <Trash
               size={16}
@@ -49,7 +50,12 @@ function CartItem({ id, qty }: ICartItem) {
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-between border border-gray-200 rounded-3xl h-9 ">
             <button
-              className={`h-full w-8 flex items-center justify-center text-2xl rounded-l-3xl cursor-pointer text-center hover:bg-svgIconBackground ${qty === 1 && " cursor-not-allowed hover:bg-transparent opacity-20 cursor "}`}
+              className={clsx(
+                "h-full w-8 flex items-center justify-center text-2xl rounded-l-3xl cursor-pointer text-center hover:bg-svgIconBackground",
+                qty === 1
+                  ? " cursor-not-allowed hover:bg-transparent opacity-20 cursor "
+                  : "",
+              )}
               onClick={() => handleUpdateProduct(id, "decrement")}
             >
               <Minus size={16} />

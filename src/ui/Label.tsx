@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 
-function Label({name, label}: {name: string, label: string}) {
+function Label({ name, label }: { name: string; label: string }) {
   return (
     <label
-              htmlFor={name}
-              className="
+      htmlFor={name}
+      className="
                 absolute
                 left-4
                 top-1/2
@@ -30,10 +30,10 @@ function Label({name, label}: {name: string, label: string}) {
               peer-[:not(:placeholder-shown)]:text-[14px]
               peer-[:not(:placeholder-shown)]:text-[#F69E0A]
               "
-            >
-              {label}
-            </label>
-  )
+    >
+      {label}
+    </label>
+  );
 }
 
-export default Label
+export default Label;

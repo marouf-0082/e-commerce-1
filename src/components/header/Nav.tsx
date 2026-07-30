@@ -2,12 +2,12 @@ import { Container } from "../container/Container";
 import { Link, NavLink } from "react-router-dom";
 import { useCartContextProvider } from "../../context/CartContext";
 import { ShoppingCart, BookHeart, LogOut } from "lucide-react";
-import Button from "../../ui/Button";
 import { useSignUpContextProvider } from "../../context/SignUpContext";
 import { useEffect, useState } from "react";
 import CircleUser from "../../assets/circle-user.svg";
 import SearchBox from "../searchBox/SearchBox";
 import DarkMode from "../../ui/DarkMode";
+import clsx from "clsx";
 
 function Nav() {
   const { cartQty } = useCartContextProvider();
@@ -30,12 +30,12 @@ function Nav() {
           <SearchBox />
           <div className="flex gap-4 items-center">
             <div className="flex gap-2 items-center relative cursor-pointer">
-              <DarkMode/>
+              <DarkMode />
               <NavLink
                 to={"/fav"}
                 className="rounded-full p-2 hover:bg-svgIconBackground transition-all duration-300"
               >
-                <BookHeart className="text-svgIcon"/>
+                <BookHeart className="text-svgIcon" />
               </NavLink>
               <NavLink
                 to={"/cart"}
@@ -59,9 +59,12 @@ function Nav() {
                     {data?.username}
                   </button>
                   <div
-                    className={`absolute top-18 -right-25 w-52 h-64 flex flex-col justify-between items-center p-3 border-2 border-gray-200 rounded-3xl backdrop-blur-2xl ${
-                      isOpen ? "opacity-100 -translate-x-5 translate-z-5 scale-105" : "opacity-0 translate-x-25 translate-z-0 scale-100"
-                    } transition-all duration-300 transition-discrete ease-in-out`}
+                    className={clsx(
+                      "absolute top-18 -right-25 w-52 h-64 flex flex-col justify-between items-center p-3 border-2 border-gray-200 rounded-3xl backdrop-blur-2xl transition-all duration-300 transition-discrete ease-in-out",
+                      isOpen
+                        ? "opacity-100 -translate-x-5 translate-z-5 scale-105"
+                        : "opacity-0 translate-x-25 translate-z-0 scale-100",
+                    )}
                   >
                     <div className="flex flex-col items-center gap-3 justify-center">
                       <div className="w-16 h-16 rounded-full">

@@ -1,4 +1,3 @@
-import React from "react";
 import { Container } from "../container/Container";
 import NewsLetter from "../newsLetter/NewsLetter";
 
@@ -115,9 +114,7 @@ function Footer() {
           </div>
           <div>
             <h4 className="font-bold text-[16px] uppercase">Shop</h4>
-            <ul
-              className="pt-2 [&>*]:pt-4 text-foreground-2 text-[14px] cursor-pointer"
-            >
+            <ul className="pt-2 [&>*]:pt-4 text-foreground-2 text-[14px] cursor-pointer">
               <li>All Products</li>
               <li>New Arrivals</li>
               <li>Sale</li>
@@ -126,9 +123,7 @@ function Footer() {
           </div>
           <div>
             <h4 className="font-bold text-[16px] uppercase">customer care</h4>
-            <ul
-              className="pt-2 [&>*]:pt-4 text-foreground-2 text-[14px] cursor-pointer"
-            >
+            <ul className="pt-2 [&>*]:pt-4 text-foreground-2 text-[14px] cursor-pointer">
               <li>All Products</li>
               <li>New Arrivals</li>
               <li>Sale</li>
@@ -137,9 +132,7 @@ function Footer() {
           </div>
           <div>
             <h4 className="font-bold text-[16px] uppercase">company</h4>
-            <ul
-              className="pt-2 [&>*]:pt-4 text-foreground-2 text-[14px] cursor-pointer"
-            >
+            <ul className="pt-2 [&>*]:pt-4 text-foreground-2 text-[14px] cursor-pointer">
               <li>All Products</li>
               <li>New Arrivals</li>
               <li>Sale</li>
@@ -148,16 +141,13 @@ function Footer() {
           </div>
           <div>
             <h4 className="font-bold text-[16px] uppercase">legal</h4>
-            <ul
-              className="pt-2 [&>*]:pt-4 text-foreground-2 text-[14px] cursor-pointer"
-            >
+            <ul className="pt-2 [&>*]:pt-4 text-foreground-2 text-[14px] cursor-pointer">
               <li>All Products</li>
               <li>New Arrivals</li>
               <li>Sale</li>
               <li>Featured</li>
             </ul>
           </div>
-          
         </div>
       </Container>
     </footer>
