@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import type { IProduct } from "../services/product/types";
-import { useCartContextProvider } from "../../context/CartContext";
-import { ShoppingCart, Check } from "lucide-react";
 import Button from "../../ui/Button";
 import { useFavContextProvider } from "../../context/FavProductsContext";
-import { useState } from "react";
 
 type IProductItem = IProduct;
 
@@ -85,7 +82,7 @@ function ProductItem(product: IProductItem) {
             ${product.price.toFixed(2)}
           </span>
         </div>
-        <Button type="primery" props={product} qty={1}/>
+        <Button type="primary" product={product} qty={1}/>
       </div>
     </div>
   );

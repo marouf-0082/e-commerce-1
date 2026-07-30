@@ -181,8 +181,8 @@ function Product() {
                     </div>
                   </div>
                   <div className="flex justify-between mt-4 gap-4">
-                    <Button props={product} type="primery" qty={selectedQty}/>
-                    <Button props={product} type="secondery" qty={selectedQty}/>
+                    <Button product={product} type="primary" qty={selectedQty}/>
+                    <Button product={product} type="secondary" qty={selectedQty}/>
                   </div>
                   <div></div>
                 </div>
