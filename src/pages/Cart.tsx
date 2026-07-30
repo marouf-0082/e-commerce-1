@@ -24,7 +24,7 @@ function Cart() {
               <div>
                 <Link
                   to={"/"}
-                  className="flex gap-2 text-[14px] text-[#697280] hover:bg-[#fffde8] rounded-3xl px-3 py-2 w-max items-center hover:text-[#262626] transition-all duration-300"
+                  className="flex gap-2 text-[14px] text-[#697280] hover:bg-[#fffde8] rounded-3xl px-3 py-2 w-max items-center hover:text-[#262626] transition-color duration-300"
                 >
                   <ArrowLeft
                     size={20}
@@ -41,7 +41,7 @@ function Cart() {
                   <div>
                     <button
                       onClick={handleClearAll}
-                      className="flex items-center justify-center gap-3 px-3 py-1 rounded-3xl text-[14px] group text-[#697280] hover:bg-yellow-50 hover:text-red-500 transition-all duration-300"
+                      className="flex items-center justify-center gap-3 px-3 py-1 rounded-3xl text-[14px] group text-[#697280] hover:bg-yellow-50 hover:text-red-500 transition-color duration-300"
                     >
                       <Trash
                         size={16}

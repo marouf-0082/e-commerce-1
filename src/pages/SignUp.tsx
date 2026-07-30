@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
 import { Container } from "../components/container/Container";
 import { useSignUpContextProvider } from "../context/SignUpContext";
 import Label from "../ui/Label";
@@ -19,7 +18,6 @@ function SignUp() {
   const { handleSignUp } = useSignUpContextProvider();
   const {
     register,
-    control,
     handleSubmit,
     getValues,
     watch,
@@ -229,9 +227,7 @@ function SignUp() {
             <button className="btn primary-btn">Submit</button>
           </form>
         </div>
-        <DevTool control={control} />
       </div>
-      
     </Container>
   );
 }

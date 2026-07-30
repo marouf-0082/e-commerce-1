@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import { Minus, Plus } from "lucide-react";
 import Loader from "../components/loader/Loader";
 import Button from "../ui/Button";
+import clsx from "clsx";
 
 function Product() {
   const params = useParams<{ id: string }>();
@@ -28,7 +29,7 @@ function Product() {
           <nav className="mb-8">
             <Link
               to={"/"}
-              className="flex gap-2 text-[14px] text-slate-500 hover:bg-[#fffde8] rounded-3xl px-3 py-2 w-max items-center hover:text-black transition-all duration-300"
+              className="flex gap-2 text-[14px] text-slate-500 hover:bg-[#fffde8] rounded-3xl px-3 py-2 w-max items-center hover:text-black transition-color duration-300"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +154,12 @@ function Product() {
                     <h3>Quantity</h3>
                     <div className="grid grid-cols-3 border border-gray-300 w-35 h-11 items-center justify-around mt-2 rounded-3xl ">
                       <button
-                        className={`w-full h-full rounded-l-3xl flex items-center justify-center text-2xl cursor-pointer text-center hover:bg-svgIconBackground ${selectedQty === 1 && " cursor-not-allowed hover:bg-transparent opacity-20 cursor "}`}
+                        className={clsx(
+                          "w-full h-full rounded-l-3xl flex items-center justify-center text-2xl cursor-pointer text-center hover:bg-svgIconBackground",
+                          selectedQty === 1
+                            ? " cursor-not-allowed hover:bg-transparent opacity-20 cursor "
+                            : "",
+                        )}
                         onClick={() =>
                           setSelectedQty(Math.max(1, selectedQty - 1))
                         }
@@ -181,8 +187,16 @@ function Product() {
                     </div>
                   </div>
                   <div className="flex justify-between mt-4 gap-4">
-                    <Button product={product} type="primary" qty={selectedQty}/>
-                    <Button product={product} type="secondary" qty={selectedQty}/>
+                    <Button
+                      product={product}
+                      type="primary"
+                      qty={selectedQty}
+                    />
+                    <Button
+                      product={product}
+                      type="secondary"
+                      qty={selectedQty}
+                    />
                   </div>
                   <div></div>
                 </div>
