@@ -2,7 +2,7 @@ import { useTheme } from "../context/ThemeContext";
 import { Sun, Moon } from "lucide-react";
 import clsx from "clsx";
 
-function DarkMode() {
+function DarkMode({className}: {className?: string}) {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -10,6 +10,7 @@ function DarkMode() {
       onClick={toggleTheme}
       className={clsx(
         "relative w-18 h-8 rounded-full outline-none transition-colors duration-500 overflow-hidden",
+        className,
         theme === "light"
           ? "bg-gray-200 shadow-[inset_-3px_1px_10px_rgba(3,3,3,0.4)] "
           : "bg-yellow-50 shadow-[inset_6px_2px_10px_rgba(3,3,3,0.6)]",

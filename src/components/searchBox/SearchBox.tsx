@@ -5,7 +5,7 @@ import type { IProduct } from "../services/product/types";
 import { Link } from "react-router-dom";
 import Loader from "../loader/Loader";
 
-function SearchBox() {
+function SearchBox({ className }: { className?: string }) {
   const [query, setQuery] = useState<string>("");
   const [searchResult, setSearchResult] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(false);
@@ -40,29 +40,29 @@ function SearchBox() {
   };
 
   return (
-    <div className="relative w-full max-w-md">
-      {query && (
+    <div className={`relative w-full lg:max-w-md ${className}`}>
+      {/* {query && (
         <X
           size={16}
           color="#666666"
           className="absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2"
           onClick={clearSearchBox}
         />
-      )}
+      )} */}
       <Search
         color="#666666"
         className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2"
       />
 
       <input
-        type="text"
+        type="search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search products..."
         className="w-full rounded-full ring-1 bg-background py-2.5 pl-11 pr-4 text-foreground text-sm outline-none placeholder:text-foreground-2"
       />
       <div
-        className={`${query ? "block" : "hidden"} absolute top-17 p-2 w-full overflow-y-auto flex flex-col gap-3 items-center justify-between border rounded-3xl backdrop-blur-2xl`}
+        className={`${query ? "block" : "hidden"} absolute top-17 p-2 w-full overflow-y-auto flex flex-col gap-3 z-50 items-center justify-between border rounded-3xl backdrop-blur-2xl`}
       >
         {loading ? (
           <Loader size="md" />

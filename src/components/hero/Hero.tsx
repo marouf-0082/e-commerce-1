@@ -1,10 +1,9 @@
-import React from "react";
 import { Container } from "../container/Container";
 
 function Hero() {
   return (
     <Container>
-      <div className="flex flex-col justify-center items-center gap-2 mt-30 mb-10">
+      <div className="flex flex-col justify-center items-center gap-2 mt-10 mb-10">
         <h1 className="text-[36px] text-[#f69e0a] font-semibold tracking-tight xl:text-[48px]">
           Step Into Style
         </h1>

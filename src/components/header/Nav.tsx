@@ -1,7 +1,7 @@
 import { Container } from "../container/Container";
 import { Link, NavLink } from "react-router-dom";
 import { useCartContextProvider } from "../../context/CartContext";
-import { ShoppingCart, BookHeart, LogOut } from "lucide-react";
+import { ShoppingCart, BookHeart, LogOut, Search } from "lucide-react";
 import { useSignUpContextProvider } from "../../context/SignUpContext";
 import { useEffect, useState } from "react";
 import CircleUser from "../../assets/circle-user.svg";
@@ -13,12 +13,15 @@ function Nav() {
   const { cartQty } = useCartContextProvider();
   const { data, isSignUp, handleSignOut } = useSignUpContextProvider();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
 
   useEffect(() => {
     setIsOpen(false);
   }, [handleSignOut]);
   return (
-    <header className="fixed top-0 w-full h-18 shadow-md flex items-center z-50 bg-background transition-colors duration-300">
+    <header
+      className={clsx("sticky top-0 w-full py-4 shadow-md flex items-center z-40 bg-background overflow-y-visible transition-all duration-300", isSearchOpen ? "pb-4" : "pb-2")}
+    >
       <Container>
         <div className="relative flex justify-between items-center">
           <Link
@@ -27,10 +30,14 @@ function Nav() {
           >
             BLOOM<span className="text-[#f69e0a]">SHOP</span>
           </Link>
-          <SearchBox />
+          <SearchBox className={`hidden sm:w-sm lg:block`} />
           <div className="flex gap-4 items-center">
             <div className="flex gap-2 items-center relative cursor-pointer">
-              <DarkMode />
+              <Search
+                className="text-svgIcon lg:hidden"
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
+              />
+              <DarkMode className="hidden sm:block"/>
               <NavLink
                 to={"/fav"}
                 className="rounded-full p-2 hover:bg-svgIconBackground transition-all duration-300"
@@ -96,8 +103,8 @@ function Nav() {
                   </Button> */}
                 </>
               ) : (
-                <>
-                  <button className="secondry-btn text-black text-[14px] rounded-3xl px-2 hover:text-[#7c4b01]">
+                <div className="hidden sm:flex gap-2 items-center">
+                  <button className="secondry-btn text-black text-[14px] rounded-3xl py-1 px-3 hover:text-[#7c4b01]">
                     Sign In
                   </button>
                   <Link
@@ -106,11 +113,20 @@ function Nav() {
                   >
                     Sign Up
                   </Link>
-                </>
+                </div>
               )}
             </div>
           </div>
         </div>
+        {isSearchOpen && (
+          <div
+            className={`transition-all duration-1000 ${
+              isSearchOpen ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <SearchBox className="lg:hidden mt-4" />
+          </div>
+        )}
       </Container>
     </header>
   );
