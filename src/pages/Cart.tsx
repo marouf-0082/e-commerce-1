@@ -3,7 +3,6 @@ import { Container } from "../components/container/Container";
 import { useCartContextProvider } from "../context/CartContext";
 import { Trash, ArrowLeft } from "lucide-react";
 import CartItem from "../components/cartItem/CartItem";
-import Button from "../ui/Button";
 import OrderSummary from "../components/ordersummary/OrderSummary";
 import EmptyCart from "../components/emptyCart/EmptyCart";
 import React from "react";
@@ -34,7 +33,7 @@ function Cart() {
                 </Link>
               </div>
             </div>
-            <div className="grid grid-cols-3 mt-5 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 mt-5 gap-6">
               <div className="col-span-2 p-6 self-start border border-gray-200 rounded-3xl shadow">
                 <div className="flex items-center justify-between pb-3">
                   <h3 className="text-[18px] font-bold">Cart Items</h3>

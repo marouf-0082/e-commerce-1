@@ -3,7 +3,7 @@ import NewsLetter from "../newsLetter/NewsLetter";
 
 function Footer() {
   return (
-    <div className="border-t">
+    <div className="border-t border-border">
       <Container>
         <NewsLetter />
         <footer
@@ -18,8 +18,8 @@ function Footer() {
           lg:gap-8"
         >
           <div
-            className="lg:col-span-2
-           lg:pr-16"
+            className="max-w-sm lg:col-span-2
+           lg:pr-16 "
           >
             <h3 className="text-2xl">
               BLOOM<span className="text-[#f69e0a]">SHOP</span>
