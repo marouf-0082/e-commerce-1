@@ -22,7 +22,7 @@ function NewsLetter() {
         gap-3
 
         sm:flex-row">
-            <input type="email" placeholder="Enter your email" className="ring-1 text-foreground pl-4 py-1.5 rounded-3xl w-full max-w-96 text-sm shadow-shadow focus:outline-none placeholder:text-foreground-2"/>
+            <input type="email" placeholder="Enter your email" className="ring-1 ring-border text-foreground pl-4 py-1.5 rounded-3xl w-full max-w-96 text-sm shadow-shadow focus:outline-none placeholder:text-foreground-2"/>
             <button className="flex items-center justify-center w-12 h-9 bg-[#f69e0a] rounded-2xl cursor-pointer">
               <ArrowRight size={16} color="#000000" />
             </button>

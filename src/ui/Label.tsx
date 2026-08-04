@@ -6,19 +6,19 @@ function Label({ name, label }: { name: string; label: string }) {
       htmlFor={name}
       className="
                 absolute
-                left-4
+                left-0
                 top-1/2
                 -translate-y-1/2
                 bg-white
                 px-1
-                text-[14px]
+                text-[16px]
                 text-[#97A1AF]
                 transition-all
                 duration-200
 
                 peer-focus:top-0
                 peer-focus:-translate-y-1/2
-                peer-focus:text-[14px]
+                peer-focus:text-[12px]
                 peer-focus:text-[#F69E0A]
 
                 
@@ -27,7 +27,7 @@ function Label({ name, label }: { name: string; label: string }) {
                 
                 peer-[:not(:placeholder-shown)]:top-0
               peer-[:not(:placeholder-shown)]:-translate-y-1/2
-              peer-[:not(:placeholder-shown)]:text-[14px]
+              peer-[:not(:placeholder-shown)]:text-[12px]
               peer-[:not(:placeholder-shown)]:text-[#F69E0A]
               "
     >

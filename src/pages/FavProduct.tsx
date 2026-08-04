@@ -7,7 +7,7 @@ function FavProduct() {
   return (
     <div>
       <Container>
-        <div className="mt-35">
+        <div className="mt-8">
           {favItems.length > 0 ? (
             <div>
               <h1 className="text-center text-3xl">Favorites</h1>

@@ -36,7 +36,7 @@ function Button({ product, type, qty }: IButtonProps) {
       onClick={handleCart}
       disabled={isAdded}
       className={clsx(
-        "btn primary-btn block w-full block w-full mt-3",
+        "btn primary-btn block mt-3",
         isAdded ? "bg-green-500 disabled:cursor-not-allowed" : "",
       )}
     >

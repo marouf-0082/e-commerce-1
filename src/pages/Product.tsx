@@ -25,11 +25,11 @@ function Product() {
   return (
     <div>
       <Container>
-        <div className="mt-25 mb-16">
+        <div className="mt-8 mb-16">
           <nav className="mb-8">
             <Link
               to={"/"}
-              className="flex gap-2 text-[14px] text-slate-500 hover:bg-[#fffde8] rounded-3xl px-3 py-2 w-max items-center hover:text-black transition-color duration-300"
+              className="flex gap-2 text-[14px] text-foreground-2 hover:bg-[#fffde8] rounded-3xl px-3 py-2 w-max items-center hover:text-black transition-color duration-300"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -50,12 +50,12 @@ function Product() {
           {isLoading ? (
             <Loader size="xl" />
           ) : (
-            <div className="grid grid-cols-2 gap-12 px-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
               <div className="w-full max-w-[500px] px-4 mx-auto">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="h-auto w-full object-cover max-h-[500px] rounded-3xl border border-slate-200 shadow-md"
+                  className="h-auto w-full object-cover max-h-[500px] rounded-3xl border border-border shadow-md"
                 />
               </div>
               <div>
@@ -149,10 +149,10 @@ function Product() {
                   Lightweight running sneakers designed for speed and comfort.
                   Breathable mesh and durable sole.
                 </p>
-                <div className="border-t border-gray-300 mt-5 pt-5">
+                <div className="border-t border-border mt-5 pt-5">
                   <div>
                     <h3>Quantity</h3>
-                    <div className="grid grid-cols-3 border border-gray-300 w-35 h-11 items-center justify-around mt-2 rounded-3xl ">
+                    <div className="grid grid-cols-3 border border-border w-35 h-11 items-center justify-around mt-2 rounded-3xl ">
                       <button
                         className={clsx(
                           "w-full h-full rounded-l-3xl flex items-center justify-center text-2xl cursor-pointer text-center hover:bg-svgIconBackground",
@@ -215,7 +215,7 @@ function Product() {
               {isProductsLoading ? (
                 <Loader size="lg" />
               ) : (
-                <div className="grid grid-cols-4 gap-5 mt-8">
+                <div className="grid grid-cols-1 gap-5 mt-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                   {products
                     ?.filter((product) => params.id !== product.id)
                     .slice(0, 4)

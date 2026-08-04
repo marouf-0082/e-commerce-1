@@ -1,7 +1,7 @@
 import { Container } from "../container/Container";
 import { Link, NavLink } from "react-router-dom";
 import { useCartContextProvider } from "../../context/CartContext";
-import { ShoppingCart, BookHeart, LogOut, Search } from "lucide-react";
+import { ShoppingCart, BookHeart, LogOut, Search, Menu, X } from "lucide-react";
 import { useSignUpContextProvider } from "../../context/SignUpContext";
 import { useEffect, useState } from "react";
 import CircleUser from "../../assets/circle-user.svg";
@@ -14,13 +14,16 @@ function Nav() {
   const { data, isSignUp, handleSignOut } = useSignUpContextProvider();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
     setIsOpen(false);
   }, [handleSignOut]);
   return (
     <header
-      className={clsx("sticky top-0 w-full py-4 shadow-md flex items-center z-40 bg-background overflow-y-visible transition-all duration-300", isSearchOpen ? "pb-4" : "pb-2")}
+      className={clsx(
+        "sticky top-0 w-full py-4 shadow-md flex items-center z-50 bg-background transition-all duration-300"
+      )}
     >
       <Container>
         <div className="relative flex justify-between items-center">
@@ -37,24 +40,24 @@ function Nav() {
                 className="text-svgIcon lg:hidden"
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
               />
-              <DarkMode className="hidden sm:block"/>
+              <DarkMode className="hidden md:block" />
               <NavLink
                 to={"/fav"}
-                className="rounded-full p-2 hover:bg-svgIconBackground transition-all duration-300"
+                className=" hidden md:block rounded-full p-2 hover:bg-svgIconBackground transition-all duration-300"
               >
                 <BookHeart className="text-svgIcon" />
               </NavLink>
               <NavLink
                 to={"/cart"}
-                className="rounded-full p-2 hover:bg-svgIconBackground transition-all duration-300"
+                className=" relative hidden sm:block rounded-full p-2 hover:bg-svgIconBackground transition-all duration-300"
               >
                 <ShoppingCart className="text-svgIcon" />
+                {cartQty > 0 && (
+                  <span className="absolute -top-1 -right-2 w-5 h-5 flex items-center justify-center select-none rounded-full bg-[#f69e0a] text-white text-xs font-bold">
+                    {cartQty}
+                  </span>
+                )}
               </NavLink>
-              {cartQty > 0 && (
-                <span className="absolute -top-1 -right-2 w-5 h-5 flex items-center justify-center select-none rounded-full bg-[#f69e0a] text-white text-xs font-bold">
-                  {cartQty}
-                </span>
-              )}
             </div>
             <div className="flex gap-2 h-7">
               {isSignUp ? (
@@ -67,10 +70,10 @@ function Nav() {
                   </button>
                   <div
                     className={clsx(
-                      "absolute top-18 -right-25 w-52 h-64 flex flex-col justify-between items-center p-3 border-2 border-gray-200 rounded-3xl backdrop-blur-2xl transition-all duration-300 transition-discrete ease-in-out",
+                      "fixed top-20 right-0 w-52 h-96 z-50 flex flex-col justify-between items-center p-3 border border-border rounded-3xl backdrop-blur-2xl transition-all duration-300 transition-discrete ease-in-out",
                       isOpen
-                        ? "opacity-100 -translate-x-5 translate-z-5 scale-105"
-                        : "opacity-0 translate-x-25 translate-z-0 scale-100",
+                        ? "opacity-100 -translate-x-5 translate-z-5 scale-105 pointer-events-auto"
+                        : "opacity-0 translate-x-5 translate-z-0 scale-100 pointer-events-none",
                     )}
                   >
                     <div className="flex flex-col items-center gap-3 justify-center">
@@ -95,15 +98,9 @@ function Nav() {
                       </button>
                     </div>
                   </div>
-                  {/* <Button
-                    onClick={handleSignOut}
-                    className=" secondry-btn text-[14px] rounded-3xl px-2 hover:text-[#7c4b01]"
-                  >
-                    Sign out
-                  </Button> */}
                 </>
               ) : (
-                <div className="hidden sm:flex gap-2 items-center">
+                <div className="hidden md:flex gap-2 items-center">
                   <button className="secondry-btn text-black text-[14px] rounded-3xl py-1 px-3 hover:text-[#7c4b01]">
                     Sign In
                   </button>
@@ -116,8 +113,68 @@ function Nav() {
                 </div>
               )}
             </div>
+            <button
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <Menu
+                className={clsx(
+                  "absolute transition-opacity duration-200",
+                  isMenuOpen ? "opacity-0" : "opacity-100",
+                )}
+              />
+              <X
+                className={clsx(
+                  "transition-opacity duration-200",
+                  isMenuOpen ? "opacity-100" : "opacity-0",
+                )}
+              />
+            </button>
           </div>
         </div>
+        {isMenuOpen && (
+          <div
+            className={`transition-all duration-1000  md:hidden ${
+              isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            <div className={`flex flex-row gap-2 items-center pt-5`}>
+              <DarkMode />
+              <NavLink
+                to={"/fav"}
+                className="rounded-full p-2 hover:bg-svgIconBackground transition-all duration-300"
+              >
+                <BookHeart className="text-svgIcon" />
+              </NavLink>
+              <NavLink
+                to={"/cart"}
+                className="relative sm:hidden rounded-full p-2 hover:bg-svgIconBackground transition-all duration-300"
+              >
+                <ShoppingCart className="text-svgIcon" />
+                {cartQty > 0 && (
+                  <span className="absolute -top-1 -right-2 w-5 h-5 flex items-center justify-center select-none rounded-full bg-[#f69e0a] text-white text-xs font-bold">
+                    {cartQty}
+                  </span>
+                )}
+              </NavLink>
+            </div>
+            <div
+              className={`flex flex-col gap-2 items-center justify-center w-full mt-3 ${
+                isSignUp && "hidden"
+              }`}
+            >
+              <button className="secondry-btn text-black text-[14px] rounded-3xl py-1.5 px-3 w-full hover:text-[#7c4b01]">
+                Sign In
+              </button>
+              <Link
+                to={"/signup"}
+                className="primary-btn py-1.5 text-[14px] px-3 w-full text-center rounded-3xl"
+              >
+                Sign Up
+              </Link>
+            </div>
+          </div>
+        )}
         {isSearchOpen && (
           <div
             className={`transition-all duration-1000 ${

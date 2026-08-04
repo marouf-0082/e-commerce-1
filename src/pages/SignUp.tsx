@@ -34,18 +34,18 @@ function SignUp() {
   });
   return (
     <Container>
-      <div className="relative p-60 flex flex-col items-center justify-center">
-        <div className="flex flex-col items-center p-8 rounded-lg shadow-[0_0_8px_rgba(0,0,0,0.5)] dark:shadow-[0_0_8px_rgba(245,245,245,0.5)] backdrop-blur-2xl">
-          <h1 className="text-5xl font-bold mb-8">Sign Up</h1>
+      <div className="relative my-10 flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center w-full max-w-[400px] p-8 rounded-lg shadow-[0_0_8px_rgba(0,0,0,0.5)] dark:shadow-[0_0_8px_rgba(245,245,245,0.5)] backdrop-blur-2xl">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-8">Sign Up</h1>
           <form
-            className="flex flex-col"
+            className="flex flex-col w-full"
             onSubmit={handleSubmit(onSubmit)}
             noValidate
           >
             <div className="form-control">
               <div className="relative">
                 <input
-                  className="formInput peer pt-6"
+                  className="formInput peer pt-6 focus:outline-none ring-0"
                   type="text"
                   id="fullname"
                   placeholder=" "
@@ -65,7 +65,7 @@ function SignUp() {
             <div className="form-control">
               <div className="relative">
                 <input
-                  className="formInput peer pt-6"
+                  className="formInput peer pt-6 focus:outline-none ring-0"
                   type="text"
                   id="username"
                   placeholder=" "
@@ -85,7 +85,7 @@ function SignUp() {
             <div className="form-control">
               <div className="relative">
                 <input
-                  className="formInput peer pt-6"
+                  className="formInput peer pt-6 focus:outline-none ring-0"
                   type="email"
                   id="email"
                   placeholder=" "
@@ -120,7 +120,7 @@ function SignUp() {
             <div className="form-control">
               <div className="relative">
                 <input
-                  className="formInput peer pt-6"
+                  className="formInput peer pt-6 focus:outline-none ring-0"
                   type={showPassword.password ? "text" : "password"}
                   placeholder=" "
                   id="password"
@@ -140,13 +140,13 @@ function SignUp() {
                   >
                     {showPassword.password ? (
                       <Eye
-                        size={22}
+                        size={20}
                         color="#97A1AF"
                         className="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer"
                       />
                     ) : (
                       <EyeOff
-                        size={22}
+                        size={20}
                         color="#97A1AF"
                         className="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer"
                       />
@@ -163,7 +163,7 @@ function SignUp() {
             <div className="form-control">
               <div className="relative">
                 <input
-                  className="formInput peer pt-6 relative"
+                  className="formInput peer pt-6 focus:outline-none ring-0"
                   type={showPassword.confirmpassword ? "text" : "password"}
                   placeholder=" "
                   id="confirmpassword"
@@ -186,13 +186,13 @@ function SignUp() {
                   >
                     {showPassword.confirmpassword ? (
                       <Eye
-                        size={22}
+                        size={20}
                         color="#97A1AF"
                         className="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer"
                       />
                     ) : (
                       <EyeOff
-                        size={22}
+                        size={20}
                         color="#97A1AF"
                         className="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer"
                       />
@@ -209,7 +209,7 @@ function SignUp() {
             <div className="form-control">
               <div className="relative">
                 <input
-                  className="formInput peer pt-6"
+                  className="formInput peer pt-6 focus:outline-none ring-0"
                   type="text"
                   id="phone"
                   placeholder=" "
@@ -228,7 +228,7 @@ function SignUp() {
           </form>
         </div>
       </div>
-    </Container>
+      </Container>
   );
 }
 

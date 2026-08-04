@@ -1,6 +1,5 @@
 import { CreditCard, Shield, Truck, Heart } from "lucide-react";
 import { useCartContextProvider } from "../../context/CartContext";
-import Button from "../../ui/Button";
 
 function OrderSummary() {
   const { cartQty, subTotal, tax, total, shippingCost } =
@@ -26,7 +25,7 @@ console.log(shippingCost);
               {shippingCost === 0 ? "Free" : `$${shippingCost.toFixed(2)}`}
             </span>
           </div>
-          <div className="flex items-center justify-between border-b border-gray-300 pb-2 text-[14px]">
+          <div className="flex items-center justify-between border-b border-border pb-2 text-[14px]">
             <span className="text-foreground-2">Tax</span>
             <span>${tax.toFixed(2)}</span>
           </div>
@@ -37,7 +36,7 @@ console.log(shippingCost);
             </span>
           </div>
         </div>
-        <div className="border-b border-gray-300 pb-4">
+        <div className="border-b border-border pb-4">
           <button className="btn primary-btn flex gap-2 w-full justify-center items-center">
             <CreditCard size={16} />
             Proceed to Checkout

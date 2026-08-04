@@ -13,8 +13,8 @@ function ProductRelatedItem({
 }) {
   return (
     <Link to={`/product/${id}`}>
-      <div className="w-full h-full rounded-3xl border border-slate-200 rounded-3xl overflow-hidden shadow flex flex-col group hover:shadow-md transition-all duration-300">
-        <div className="w-full h-96 overflow-hidden">
+      <div className="rounded-3xl border border-border overflow-hidden shadow flex flex-col group hover:shadow-md transition-all duration-300">
+        <div className="w-full h-72 overflow-hidden">
           <img className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300" src={image} alt={name} />
         </div>
         <div className="p-4">

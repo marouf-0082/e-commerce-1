@@ -22,7 +22,7 @@ function ProductItem(product: IProductItem) {
           />
           <div className="absolute top-0 w-full h-full rounded-t-3xl opacity-0 group-hover/cart:opacity-100 backdrop-blur-xs transition-all duration-300">
             <div
-              className="fixed top-3 right-3 w-9 h-9 bg-white rounded-full group/heart flex items-center justify-center cursor-pointer"
+              className="fixed top-3 right-3 w-9 h-9 border border-border bg-white rounded-full group/heart flex items-center justify-center cursor-pointer"
               onClick={(e) => handleAddToFav({ product: product, e })}
             >
               {productIsFavorite ? (

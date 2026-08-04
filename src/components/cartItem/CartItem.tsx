@@ -48,7 +48,7 @@ function CartItem({ id, qty }: ICartItem) {
           </button>
         </div>
         <div className="flex items-center justify-between">
-          <div className="flex items-center justify-between border border-gray-200 rounded-3xl h-9 ">
+          <div className="flex items-center justify-between border border-border rounded-3xl h-9 ">
             <button
               className={clsx(
                 "h-full w-8 flex items-center justify-center text-2xl rounded-l-3xl cursor-pointer text-center hover:bg-svgIconBackground",
@@ -75,7 +75,7 @@ function CartItem({ id, qty }: ICartItem) {
               <Plus size={16} />
             </button>
           </div>
-          <span className="text-[18px] font-bold">
+          <span className="text-[16px] sm:text-[18px] font-bold">
             ${totalPriceEachProduct.toFixed(2)}
           </span>
         </div>
